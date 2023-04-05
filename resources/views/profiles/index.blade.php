@@ -17,7 +17,7 @@
             
             <li class="p-3">
                 <a href="{{ route('profile.edit') }}">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-dark">
                     {{ __('Editar perfil') }}
                 </button>
                 </a>
@@ -25,7 +25,7 @@
 
             <li class="p-3">
                 <a href="{{route('orders_list.index')}}">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-dark">
                     {{ __('Ver pedidos') }}
                 </button>
                 </li>
