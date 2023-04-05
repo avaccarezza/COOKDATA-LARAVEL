@@ -1,17 +1,18 @@
 @extends('layouts.app')
 @section('content')
-       <h1>Bienvenido</h1>
-       @empty($customers)
+       <h1>Insertar landing page</h1>
+       @empty($users)
        <div class="alert alert-danger">
               Todavia no hay productos!
        </div>
        @else
        <div class="row">
-       @foreach($customers as $customer)
+              @foreach($users as $user)
               <div class="col-md-2">           
-                     @include('components.customer-card')
+                     {{--@include('users.index')--}}
               </div>
-       @endforeach
+              @endforeach
+              
        </div>
        @endempty
 @endsection

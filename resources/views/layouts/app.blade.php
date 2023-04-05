@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="icon" href="{{ URL::asset('img/utilities/favicon.ico')}}"> 
-    <title>Zabit</title>
+    <title>Cookdata</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -66,7 +66,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ asset(Auth::user()->profile_image)}}" alt="{{ Auth::user()->name }}" class="rounded-circle" width="32" height="32">
+                                    <img src="{{  asset(Auth::user()->profile_image)}}" alt="{{ Auth::user()->name }}" class="rounded-circle" width="32" height="32">
                                    
                                     <span class="caret"></span>
                                 </a>
@@ -77,22 +77,19 @@
                                           <h4 class="card-title h5 h4-sm">{{ Auth::user()->name }}</h4>
                                           <p class="card-text">{{Auth::user()->email}}</p>
                                           <a href="{{ route('profile.index') }}">
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn btn-dark">
                                                 {{ __('Ver perfil') }}
                                             </button>
                                             </a>
                                         </div>
-                                      </div>
-                                  
-                                   
-                                    <a class="dropdown-item" href="{{ route('orders_list.index') }}">{{__('Ver Pedidos')}}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Cerrar Sesión') }}
-                                    </a>
-
+                                    </div>
+                                        <a class="dropdown-item d-flex justify-content-center pt-2" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                            <button type="submit" class="btn btn-dark">                                        
+                                            {{ __('Cerrar Sesión') }}
+                                            </button>
+                                        </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>

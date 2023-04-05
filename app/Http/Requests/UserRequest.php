@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserRequest extends FormRequest
@@ -24,21 +24,17 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:255'],
-            'description' => ['required', 'max:1000'],
-            'price' => ['required', 'min:1'],
-            'stock' => ['required', 'min:0'],
-            'status' => ['required', 'in:available,unavailable'],
-            'images.*' => ['nullable', 'image'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($this->user()->id)],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'image' => ['nullable', 'image'],
         ];
     }
-
-    public function withValidator($validator)
-    {
-        $validator->after(function ($validator) {
-            if ($this->status == 'available' && $this->stock == 0) {
-                $validator->errors()->add('stock', 'If available must have stock');
-            }
-        });
-    }
+   
+   
 }

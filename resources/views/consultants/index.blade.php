@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Lista de usuarios</h1>
+    <h1>Lista de Consultores</h1>
 
    
 

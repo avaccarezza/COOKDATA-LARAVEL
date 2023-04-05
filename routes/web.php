@@ -17,7 +17,7 @@ Route::resource('orders', 'App\Http\Controllers\OrderController')
         ->only(['create','store'])
         ->middleware(['verified']);
 
-
+Route::get('customer_area', 'App\Http\Controllers\CustomerAreaController')->name('customer_area.index');
 
 
 Route::resource('orders.payments', 'App\Http\Controllers\OrderPaymentController')

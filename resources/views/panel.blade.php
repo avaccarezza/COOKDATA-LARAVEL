@@ -11,17 +11,16 @@
                    
                     <div class="d-flex justify-content-between">
                         <div class="">
-                            <a type="button" class="btn btn-dark " href="{{route('users.index')}}">Administrar clientes</a>
+                            <a type="button" class="btn btn-dark " href="{{route('users.index')}}">Listado usuarios</a>
                         </div>
                         <div class="">
-                            <a type="button" class="btn btn-dark " href="{{route('customers.index')}}">Administrar puntos</a>
+                            <a type="button" class="btn btn-dark " href="{{route('consultants.index')}}">Listado consultores</a>
                         </div>
                         <div class="">
-                            <a type="button" class="btn btn-dark " href="{{route('customers.index')}}">Administrar locales</a>
-                        </div>
-                        
+                            <a type="button" class="btn btn-dark " href="">Listado clientes</a>
+                        </div>    
                         <div class="">
-                            <a type="button" class="btn btn-dark " href="{{route('profile.index')}}">Administrar perfil</a>
+                            <a type="button" class="btn btn-dark " href="{{route('profile.index')}}">Listado perfiles</a>
                         </div>
                       </div>
                       

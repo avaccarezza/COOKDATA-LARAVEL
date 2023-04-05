@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Customer;
+use App\Models\User;
 
 class MainController extends Controller
 {
@@ -12,9 +12,9 @@ class MainController extends Controller
     public function index()
     {
         
-        $customers = Customer::all();
+        $users = User::all();
         return view('welcome')->with([
-            'customers' => $customers,
+            'users' => $users,
         ]);
     }
 }

@@ -32,33 +32,9 @@ class DatabaseSeeder extends Seeder
                     $user->image()->save($image);
                 });
 
-        $orders = Order::factory(10)
-                ->make()
-                ->each( function($order) use ($users){
-                   $order->customer_id = $users->random()->id;
-                   $order->save();
-                   $payment = Payment::factory()->make();
-                   $order->payment()->save($payment);
-                });
+       
 
-                $carts = Cart::factory(20)->create();
-
-                $customers = Customer::factory(50)
-                        ->create()
-                        ->each(function($customer) use ($orders, $carts){
-                            $order  = $orders->random();
-                            $order->customers()->attach([
-                                $customer->id => ['quantity' => mt_rand(1,3)]
-                            ]);
-
-                            $cart = $carts->random();
-
-                            $cart->customers()->attach([
-                                $customer->id => ['quantity' => mt_rand(1,3)]
-                             ]);
-                            $images = Image::factory(mt_rand(2,4))->make();
-                            $customer->images()->saveMany($images);
-                        });
+             
 
        
     }
