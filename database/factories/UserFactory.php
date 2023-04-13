@@ -25,6 +25,10 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'admin_since' => $this->faker->randomElement([now(), null]),
             'consultant' =>$this->faker->boolean(),
+            'customer_id' =>$this->faker->randomElement([1,2,3]),
+            'profile_id' =>$this->faker->randomElement([1,2,3]),
+
+            
         ];
     }
 

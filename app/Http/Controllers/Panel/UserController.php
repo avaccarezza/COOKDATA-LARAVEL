@@ -4,13 +4,16 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\UserRequest;
+use App\Models\Customer;
+use App\Models\Profile;
 use App\Models\User;
+use App\Models\App;
 class UserController extends Controller
 {
     public function index()
-    {
-        $users = User::search(request('search'))->get(); 
+    {   
         
+        $users = User::search(request('search'))->get(); 
         return view( 'users.index', compact('users'));
     }
     public function create(){
@@ -25,22 +28,27 @@ class UserController extends Controller
     {
         return view('users.show')->with([
             'user' => $user,
+            
         ]);
     }  
   
       
-    public function edit(User $user)
+    public function edit(User $user, Profile $profile, Customer $customer)
     {
-        return view('users.edit')->with([
+        $customers = Customer::select('id','customer')->get();
+        $profiles = Profile::select('id','profile')->get();
+        $users = User::all();
+        return view('users.edit',compact('customers'), compact('profiles'), compact('users'))->with([
 
-           'user' => $user,
+           'user' => $user, 
+           
         ]);
     }   
     
-    public function update(UserRequest $request , User $user){
+    public function update(UserRequest $request , User $user,Customer $customer){
        
         $user->update($request->validated());
- 
+      
        return redirect()
                 ->route('users.index')
                 ->withSuccess("El usuario con ID {$user->id} fue editado");

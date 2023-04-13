@@ -22,7 +22,28 @@
 </head>
 <body>
     <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light  shadow-sm p-0 d-none d-md-block" style="background-color: #F0F0F0;" >
+            <div class="container">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{{ url('/') }}">decidecondatos@cookdata.io</a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link text-dark">(+54) 11 3561 3735</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link text-dark">(+34) 667 316 307</span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <img src="{{ URL::asset('img/utilities/headerkitdigital.png')}}" width="100%">
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ URL::asset('img/utilities/logocookdata.png')}}" width="150px">
@@ -37,18 +58,85 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">Inicio</a>
                         </li>
+                        @if(Request::is('/')) 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">Beneficios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">Contactos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">Partners</a>
+                        </li>
+                       @endif
                     </ul>
 
+                    <ul class="navbar-nav ms-auto">     
+                    @if(Route::current()->getName() == 'customers_area.index') 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">      
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Soporte
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @foreach (Auth::user()->customer->apps as $aplicacion)
+                            @if( $aplicacion->type_of_app == 'Soporte')
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://cookdata.link/{{Auth::user()->customer->customer}}_APP_{{$aplicacion->app }}" target="blank">
+                               {{$aplicacion->app}} 
+                            </a>
+                            @endif
+                            @endforeach
+                           
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Informes
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @foreach (Auth::user()->customer->apps as $aplicacion)
+                            @if( $aplicacion->type_of_app == 'Informes')
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://cookdata.link/{{Auth::user()->customer->customer}}_APP_{{$aplicacion->app }}" target="blank">
+                               {{$aplicacion->app}} 
+                            </a>
+                            @endif
+                            @endforeach
+                           
+                        </div>
+                    </li>
+                   
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Apps Mobile
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @foreach (Auth::user()->customer->apps as $aplicacion)
+                            @if( $aplicacion->type_of_app == 'Aplicaciones')
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://cookdata.link/{{Auth::user()->customer->customer}}_APP_{{$aplicacion->app }}" target="blank">
+                               {{$aplicacion->app}} 
+                            </a>
+                            @endif
+                            @endforeach
+                           
+                        </div>
+                    </li>
+                    @endif
+                    
                     <!--1- funcion del IF:  muestra el elemento de Panel si el usuario es Admin
                         2- optional() es un helper, que si auth()->user() retorna null la funcion isAdmin() nunca es llamada   --> 
-                        {{--@if(optional(auth()->user())->isAdmin())--}}
+                        @if(optional(auth()->user())->isAdmin())  
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('panel') }}" >Panel</a>
                         </li>
-                        {{--@endif--}}
-                        
+                        @endif
                         
                         <!-- Authentication Links -->
                         @guest

@@ -2,7 +2,7 @@
 <div class="card w-300 h-90 mt-2">  
   <div id="carousel{{$customer->id}}" class="carousel slide" data-bs-ride="true">
     <div class="carousel-inner">
-      @foreach ($customer->images as $image)
+     @foreach ($customer->images as $image) 
         <div class="carousel-item {{ $loop->first ? 'active' : ''}}">
           <img class="d-block w-100 card-img-top" src="{{ asset($image->path) }}" alt="Imagen-del-customero" height="160" >
         </div>

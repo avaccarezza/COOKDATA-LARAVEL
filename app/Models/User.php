@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Customer;
+use App\Models\Profile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,6 +15,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, Searchable;
     
+    protected $table = "users";
   
     /**
      * The attributes that are mass assignable.
@@ -26,6 +28,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'admin_since',
         'consultant',
+        'customer_id',
+        'profile_id',
+        
     ];
 
     /**
@@ -94,4 +99,14 @@ class User extends Authenticatable implements MustVerifyEmail
         'email' => $this->email,
     ];
 }
+public function customer()
+{
+    return $this->belongsTo(Customer::class);
 }
+public function profile()
+{
+    return $this->belongsTo(Profile::class);
+}
+
+}
+

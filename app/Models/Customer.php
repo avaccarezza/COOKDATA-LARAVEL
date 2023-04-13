@@ -9,43 +9,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Customer extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
     protected $table = 'customers';
     //optimiza la cantidad de consultas de la base de datos de forma global
-    protected $with = [
-        'images',
-    ];
+   
     protected $fillable = [
-        'title',
-        'description',
-        'price',
-        'stock',
-        'status',
+        
+        'customer',
     ];
 
-    public function carts()
-    {
-        return $this->morphedByMany(Cart::class, 'productable')->withPivot('quantity');
+     public function user(){
+        return $this->hasOne(User::class);
     }
-    public function orders()
-    {
-        return $this->morphedByMany(Order::class, 'productable')->withPivot('quantity');
+    public function apps(){
+        return $this->hasMany(App::class);
     }
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
-    }
-    public function scopeAvailable($query){
-        $query->where('status', 'Activo');
-    }
-    public function getTotalAttribute()
-    {
-        return $this->pivot->quantity * $this->price;
-    }
-
-     //se encarga de obtener los productos disponibles
-     protected static function booted(): void
-     {
-         static::addGlobalScope(new AvailableScope);
-     }
 }

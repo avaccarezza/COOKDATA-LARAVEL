@@ -38,7 +38,19 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="consultant" class="col-md-4 col-form-label text-md-end">{{ __('Consultor') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="consultant" type="text" class="form-control @error('consultant') is-invalid @enderror" name="consultant" value="{{ old('consultant') }}" required autocomplete="consultant" autofocus>
+
+                                @error('consultant')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
 
@@ -85,10 +97,53 @@
                                 </div>
                             </div>
                         </div>
+                         <!--input customer-->
+                    <div class="row mb-3">
+                        <label class="col-md-4 col-form-label text-md-end">{{ __('Cliente') }}</label>
+                        <div class="col-md-6">
+                            <select class="form-select" aria-label="Default select example" name="customer_id" > 
+                                @foreach ($customers as $customer)
+                                 <option value="{{ $customer->id }}">{{ $customer->customer }}</option>
+                                 @endforeach
+                            </select>
+                        </div>
+                    </div>
+                       <!--input profile-->
+                    <div class="row mb-3">
+                        <label class="col-md-4 col-form-label text-md-end">{{ __('Perfil') }}</label>
+                        <div class="col-md-6">
+                            <select class="form-select" aria-label="Default select example" name="profile_id" > 
+                                @foreach ($profiles as $profile)
+                                 <option value="{{ $profile->id }}">{{ $profile->profile }}</option>
+                                 @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- checkbox apps-->
+                    <div class="row mb-3">
+                        <label class="col-md-4 col-form-label text-md-end">{{ __('Aplicaciones') }}</label>
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Gestion" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Gestion
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Database" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Database
+                                </label>
+                              </div>
+                        </div>
+                    </div>
+                    
+                    
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-dark">
                                     {{ __('Registrarse') }}
                                 </button>
                             </div>

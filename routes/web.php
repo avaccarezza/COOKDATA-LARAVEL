@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('main');
 
 Route::get('profile','App\Http\Controllers\ProfileController@index')->name('profile.index');
-Route::get('orders_list','App\Http\Controllers\OrderListController@index')->name('orders_list.index');
+
 Route::get('profile/edit','App\Http\Controllers\ProfileController@edit')->name('profile.edit');
 Route::put('profile/edit','App\Http\Controllers\ProfileController@update')->name('profile.update');
-Route::get('customer_area', 'App\Http\Controllers\CustomerAreaController@index')->name('customer_area.index');
+Route::resource('customers_area', 'App\Http\Controllers\CustomerAreaController');
+
+
 
 Route::resource('customers.carts', 'App\Http\Controllers\CustomerCartController')->only(['store' , 'destroy']);
 

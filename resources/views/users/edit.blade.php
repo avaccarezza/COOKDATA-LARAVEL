@@ -31,7 +31,6 @@
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ?? $user->email }}" required autocomplete="email">
                         </div>
                     </div>
-                   
                     <div class="row mb-3">
                         <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
 
@@ -78,38 +77,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">{{ __('Cliente') }}</label>
+                      <!--input customer-->
+                      <div class="row mb-3">
+                        <label class="col-md-4 col-form-label text-md-end">{{ __('Clientes') }}</label>
                         <div class="col-md-6">
-                            <select class="form-select" aria-label="Default select example" name="customer" required>
-                                <!--TO DO foreach-->
-                                <option value="" selected>Seleccionar</option>
-                                <option {{$user->customer == 'Activo' ? 'selected' : '' }} value="Ejemplo 1">Ejemplo 1</option>
-                                <option {{$user->customer == 'Inactivo' ? 'selected' : '' }} value="Ejemplo 2">Ejemplo 2</option>
+                            <select class="form-select" aria-label="Default select example" name="customer_id" required> 
+                                @foreach ($customers as $customer )     
+                                <option  value="{{$customer->id }}" @selected($customer->customer == $user->customer->customer)>{{$customer->customer}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
+                    <!--input profile-->
                     <div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Perfil') }}</label>
                         <div class="col-md-6">
-                            <!--TO DO foreach-->
-                            <select class="form-select" aria-label="Default select example" name="profile" required>
-                                <option value="" selected>Seleccionar</option>
-                                <option {{$user->profile == 'Activo' ? 'selected' : '' }} value="Ejemplo 1">Ejemplo 1</option>
-                                <option {{$user->profile == 'Inactivo' ? 'selected' : '' }}value="Ejemplo 2">Ejemplo 2</option>
+                            <select class="form-select" aria-label="Default select example" name="profile_id" required> 
+                                @foreach ($profiles as $profile )     
+                                <option  value="{{$profile->id }}" @selected($profile->profile == $user->profile->profile)>{{$profile->profile}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label  class="col-md-4 col-form-label text-md-end">{{ __('Fotos de perfil') }}</label>
-            
-                        <div class="col-md-6">
-                            <div class="custom-file">
-                                <input type="file" accept="image/*" name="images[]" class="form-control" multiple>
-                            </div>
-                        </div>
-                    </div>
-                    
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
+use App\Models\Profile;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -40,6 +42,12 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+    public function showRegistrationForm()
+{
+    $profiles = Profile::all();
+    $customers = Customer::all();
+    return view('auth.register', compact('profiles'), compact('customers'));
+}
 
     /**
      * Get a validator for an incoming registration request.
@@ -53,6 +61,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'consultant' => ['required'],
+            'customer_id' =>['required'],
+            'profile_id' =>['required'],
         ]);
     }
 
@@ -67,7 +78,10 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'consultant'=>$data['consultant'],
             'password' => $data['password'],
+            'customer_id' => $data['customer_id'],
+            'profile_id' => $data['profile_id'],
         ]);
     }
 }
