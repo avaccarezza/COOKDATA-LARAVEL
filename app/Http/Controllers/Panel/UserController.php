@@ -8,19 +8,29 @@ use App\Models\Customer;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\App;
+use Illuminate\Support\Facades\Request;
 class UserController extends Controller
 {
-    public function index()
-    {   
+    
+    public function index(Request $request)
+    {    
+        $url= $_SERVER["REQUEST_URI"];
+
+        if (strpos($url, 'search')): 
+            $users = User::search(request('search'))->get(); 
+        else:
+            $users = User::sortable()->get();
+        endif;
+         
+       
         
-        $users = User::search(request('search'))->get(); 
         return view( 'users.index', compact('users'));
     }
     public function create(){
         return view('users.create');
     }
     public function store(ProfileRequest $request)
-    {
+    {  
         $user = User::create($request->validated());
         return $user;
     }  
@@ -61,5 +71,6 @@ class UserController extends Controller
                 ->route('users.index')
                 ->withSuccess("El usuario con ID {$user->id} fue eliminado");
     }
+    
 
 }

@@ -34,6 +34,7 @@ class UserRequest extends FormRequest
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
             'customer_id' => ['nullable'],
             'profile_id' =>['nullable'],
+            'consultant' =>['nullable'],
             'image' => ['nullable', 'image'],
         ];
     }

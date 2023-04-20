@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->timestamp('admin_since')->nullable();
-            $table->boolean('consultant')->default(false);
+            $table->boolean('consultant')->default(0);
             $table->bigInteger('customer_id')->unsigned()->nullable();
             $table->bigInteger('profile_id')->unsigned()->nullable();
             $table->rememberToken();

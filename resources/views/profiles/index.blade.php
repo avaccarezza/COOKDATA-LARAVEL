@@ -17,7 +17,7 @@
             
             <li class="p-3">
                 <a href="{{ route('profile.edit') }}">
-                <button type="submit" class="btn btn-dark">
+                <button type="submit" class="btn btn-warning">
                     {{ __('Editar perfil') }}
                 </button>
                 </a>

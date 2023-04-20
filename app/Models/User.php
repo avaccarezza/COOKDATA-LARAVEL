@@ -8,14 +8,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Kyslik\ColumnSortable\Sortable;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Scout\Searchable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, Searchable;
+    use HasApiTokens, HasFactory, Notifiable, Searchable, Sortable;
     
     protected $table = "users";
+    public $sortable = ['id','name','email','customer_id','profile_id'];
   
     /**
      * The attributes that are mass assignable.
@@ -78,6 +80,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->admin_since != null
             && $this->admin_since->lessThanOrEqualTo(now());
     }
+    public function isConsultant()
+    {
+        return $this->consultant == 1;
+    }
 
 
     //hash de password
@@ -107,6 +113,21 @@ public function profile()
 {
     return $this->belongsTo(Profile::class);
 }
+public function user(){
+    return $this->hasOne(Consultant::class);
+}
 
+    public $sortColumn;
+    public $sortDirection;
+    public $columns = [
+        'id',
+        'name',
+        'email',
+    ];
+    public function sort($column)
+    {
+    $this->sortColumn = $column;
+    $this->sortDirection = $this->sortDirection == 'asc' ? 'desc' : 'asc';
+    }
 }
 

@@ -9,6 +9,23 @@
 
     <link rel="icon" href="{{ URL::asset('img/utilities/favicon.ico')}}"> 
     <title>Cookdata</title>
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="{{ URL::asset('../css/animate/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/about.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/careers.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/carousel-slider.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/com-soon.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/contact.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/faq.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/news.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/pricing.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/project.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/services.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/shop.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/single-product.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/styles.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/team.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/testimonials.css') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -17,6 +34,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
+    <script src="{{ asset('../js/custom.js') }}" defer></script>
 
     
 </head>
@@ -26,13 +44,14 @@
             <div class="container">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ url('/') }}">decidecondatos@cookdata.io</a>
+                        <a class="nav-link text-dark" href="mailto:decidecondatos@cookdata.io">decidecondatos@cookdata.io</a>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link text-dark">(+54) 11 3561 3735</span>
+                        <a class="nav-link text-dark">(+54) 11 3561 3735</a>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link text-dark">(+34) 667 316 307</span>
+                        <a class="nav-link text-dark" target="blank" href="https://wa.me/34667316307/">(+34) 667 316 307</a>
+
                     </li>
                 </ul>
             </div>
@@ -60,20 +79,29 @@
                         </li>
                         @if(Request::is('/')) 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">Servicios</a>
+                            <a class="nav-link" href="#servicios">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">Beneficios</a>
+                            <a class="nav-link" href="#beneficios">Beneficios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">Clientes</a>
+                            <a class="nav-link" href="#clientes">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">Contactos</a>
+                            <a class="nav-link" href="#contacto">Contactos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">Partners</a>
-                        </li>
+                        <div class="collapse navbar-collapse" id="navbarNavWhiteDropdown">
+                            <ul class="navbar-nav">
+                              <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarWhiteDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Partners
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-white" aria-labelledby="navbarWhiteDropdownMenuLink">
+                                  <li><a class="dropdown-item" href="{{ route('partners.index')}}">Agora</a></li> 
+                                </ul>
+                              </li>
+                            </ul>
+                          </div>
                        @endif
                     </ul>
 
@@ -128,7 +156,12 @@
                         </div>
                     </li>
                     @endif
-                    
+                    @if(optional(auth()->user())->isConsultant())  
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('consultants.index') }}" >Area de consultores</a>
+                        </li>
+                        @endif
                     <!--1- funcion del IF:  muestra el elemento de Panel si el usuario es Admin
                         2- optional() es un helper, que si auth()->user() retorna null la funcion isAdmin() nunca es llamada   --> 
                         @if(optional(auth()->user())->isAdmin())  
@@ -165,7 +198,7 @@
                                           <h4 class="card-title h5 h4-sm">{{ Auth::user()->name }}</h4>
                                           <p class="card-text">{{Auth::user()->email}}</p>
                                           <a href="{{ route('profile.index') }}">
-                                            <button type="submit" class="btn btn-dark">
+                                            <button type="submit" class="btn btn-warning">
                                                 {{ __('Ver perfil') }}
                                             </button>
                                             </a>
@@ -174,7 +207,7 @@
                                         <a class="dropdown-item d-flex justify-content-center pt-2" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                            <button type="submit" class="btn btn-dark">                                        
+                                            <button type="submit" class="btn btn-warning">                                        
                                             {{ __('Cerrar Sesión') }}
                                             </button>
                                         </a>
@@ -188,8 +221,9 @@
                 </div>
             </div>
         </nav>
-
+@unless(Request::is('/'))
         <main class="py-4">
+@endunless
             <div class="container-fluid">
                 @if (session()->has('success'))
                     <div class="alert alert-success">
@@ -209,6 +243,121 @@
             @yield('content')
                 </div>
         </main>
+    @unless(Request::is('/'))
     </div>
+    @endunless
+ <!--====================================================
+                      FOOTER
+======================================================-->
+<footer>
+    <div id="footer-s1" class="footer-s1">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- About Us -->
+                    <div class="col-md-3 col-sm-6">
+                        <div>
+                            <a href="#topmenu" class="smooth-scrolls">
+                                <img src="{{ URL::asset('img/utilities/logo-transparente.png')}}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End About Us -->
+
+                    <!-- Recent News -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="heading-footer">
+                            <h2>Links útiles</h2>
+                        </div>
+                        <ul class="list-unstyled link-list">
+                            <li>
+                                <a class="smooth-scrolls" href="{{ url('/') }}">Inicio</a>
+                                <i class="fa fa-angle-up"></i>
+                            </li>
+                            @if(Request::is('/')) 
+                            <li>
+                                <a class="smooth-scrolls" href="#servicios">Servicios</a>
+                                <i class="fa fa-angle-up"></i>
+                            </li>
+                            <li>
+                                <a class="smooth-scrolls" href="#clientes">Clientes</a>
+                                <i class="fa fa-angle-up"></i></i>
+                            </li>
+                            <li>
+                                <a class="smooth-scrolls" href="#beneficios">Beneficios</a>
+                                <i class="fa fa-angle-up"></i>
+                            </li>
+                            <li>
+                                <a class="smooth-scrolls" href="#contacto">Contacto</a>
+                                <i class="fa fa-angle-up"></i>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#login-modal">Area de Clientes</a>
+                            </li>
+                            @endif
+                            <!-- <li><a href="#">Business Intelligence</a><i class="fa fa-angle-right"></i></li>  hay que arreglar link cuando esté la página -->
+                            <!-- <li><a href="#">Contáctanos</a><i class="fa fa-angle-right"></i></li>  -->
+                        </ul>
+                    </div>
+                    <!-- End Recent list -->
+
+                    <!-- Latest Tweets -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="heading-footer">
+                            <h2>Contáctanos</h2>
+                        </div>
+                        <address class="address-details-f">
+                            <b>España</b><br>
+                            Av Condesa de Chinchon, 11<br>
+                            28660 Boadilla del Monte<br>
+                            Madrid<br>
+                            <i class="fa fa-phone"></i> (+34) 667 316 307<br>
+                            <i class="fa fa-envelope-o"></i> <a href="mailto:decidecondatos@cookdata.io"
+                                class="">decidecondatos@cookdata.io</a>
+                        </address>
+                        <ul class="list-inline social-icon-f top-data">
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="heading-footer-invisible">
+                            <h2><br></h2>
+                        </div>
+                        <address class="address-details-f">
+                            <b>Argentina</b><br>
+                            Las Camelias 3324<br>
+                            1669 - Pilar<br>
+                            Buenos Aires<br>
+                            <i class="fa fa-phone"></i> (+54) 11 3561 3735<br>
+                            <i class="fa fa-envelope-o"></i> <a href="mailto:decidecondatos@cookdata.io"
+                                class="">decidecondatos@cookdata.io</a>
+                        </address>
+                        <ul class="list-inline social-icon-f top-data">
+                        </ul>
+                    </div>
+                    <!-- End Latest Tweets -->
+                </div>
+            </div>
+            <!--/container -->
+        </div>
+    </div>
+
+    <div id="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="footer-copyrights">
+                        <p>Copyright &copy; 2021 All Rights Reserved by Cookdata.</br><a
+                                href="{{ route('politics.index')}}">Privacy Policy</a> <a
+                                href="{{ route('terms.index')}}">Terms of Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <a href="#home" id="back-to-top" class="btn btn-sm btn-green btn-back-to-top smooth-scrolls hidden-sm hidden-xs" title="home" role="button">
+    <i class="fa fa-angle-up"></i>
+</a> -->
+</footer>
 </body>
 </html>

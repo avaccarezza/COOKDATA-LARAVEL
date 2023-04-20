@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->enum('profile' , ['Administrador','Gerencia','Sala'])->default('Gerencia');
+            $table->string('profile');
             $table->timestamps();
         });
     }

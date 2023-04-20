@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Mail\HablemosMailable;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('main');
 
@@ -10,7 +12,14 @@ Route::get('profile/edit','App\Http\Controllers\ProfileController@edit')->name('
 Route::put('profile/edit','App\Http\Controllers\ProfileController@update')->name('profile.update');
 Route::resource('customers_area', 'App\Http\Controllers\CustomerAreaController');
 
+Route::get('partners','App\Http\Controllers\PartnerController@index')->name('partners.index');
 
+Route::resource('politics', 'App\Http\Controllers\PoliticController')->only(['index']);
+Route::resource('terms', 'App\Http\Controllers\TermController')->only(['index']);
+
+Route::get('hablemos', [App\Http\Controllers\EmailController::class, 'index'])->name('hablemos.index');
+
+Route::post('hablemos', [App\Http\Controllers\EmailController::class, 'store'])->name('hablemos.store');
 
 Route::resource('customers.carts', 'App\Http\Controllers\CustomerCartController')->only(['store' , 'destroy']);
 

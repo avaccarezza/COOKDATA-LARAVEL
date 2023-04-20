@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->enum('customer', ['Cookdata','Vanadi','Cortile'])->default('Cookdata');
+            $table->string('customer');
             $table->timestamps();
         });
     }

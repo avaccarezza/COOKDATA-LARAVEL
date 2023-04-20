@@ -24,4 +24,7 @@ class Customer extends Model
     public function apps(){
         return $this->hasMany(App::class);
     }
+    public function consultants(){
+        return $this->hasMany(Consultant::class);
+    }
 }

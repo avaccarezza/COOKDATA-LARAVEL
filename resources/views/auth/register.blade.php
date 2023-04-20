@@ -38,19 +38,17 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="consultant" class="col-md-4 col-form-label text-md-end">{{ __('Consultor') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="consultant" type="text" class="form-control @error('consultant') is-invalid @enderror" name="consultant" value="{{ old('consultant') }}" required autocomplete="consultant" autofocus>
-
-                                @error('consultant')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                          <!--consultant
+                        <div class="row mb-3 align-items-center">
+                            <label for="consultant" class="col-md-4 col-form-label text-md-end">{{ __('Es consultor?') }}</label>
+                                <div class="col-md-6 ">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" name="consultant" id="consultant"   value="{{old('consultant') ? 1 : 0}}" unchecked>  
+                                    </div>
+                                </div>
+                        </div>-->
+                           
+                        
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
 
@@ -101,7 +99,7 @@
                     <div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Cliente') }}</label>
                         <div class="col-md-6">
-                            <select class="form-select" aria-label="Default select example" name="customer_id" > 
+                            <select class="form-select" aria-label="Default select example" name="customer_id" required > 
                                 @foreach ($customers as $customer)
                                  <option value="{{ $customer->id }}">{{ $customer->customer }}</option>
                                  @endforeach
@@ -112,38 +110,65 @@
                     <div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Perfil') }}</label>
                         <div class="col-md-6">
-                            <select class="form-select" aria-label="Default select example" name="profile_id" > 
+                            <select class="form-select" aria-label="Default select example" name="profile_id" required> 
                                 @foreach ($profiles as $profile)
                                  <option value="{{ $profile->id }}">{{ $profile->profile }}</option>
                                  @endforeach
                             </select>
                         </div>
                     </div>
-
-                    <!-- checkbox apps-->
-                    <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">{{ __('Aplicaciones') }}</label>
-                        <div class="col-md-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Gestion" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Gestion
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Database" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    Database
-                                </label>
-                              </div>
-                        </div>
+                    {{--@foreach($apps as $app)
+                    @if($app->type_of_app == 'Informes')
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Gestion" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            {{ $app->app }}
+                        </label>
                     </div>
-                    
-                    
+                    @endif
+                    <label class="col-md-3 col-form-label text-md-center">{{ __('Informes') }}</label>
+                     @endforeach--}}
+                    <!-- checkbox apps-->
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-3">
+                            <label class="d-flex justify-content-center">{{ __('Soporte') }}</label>
+                            @foreach($apps as $app)
+                            @if($app->type_of_app == "Soporte")
+                            <div class="form-check ">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label d-flex justify-content-center" for="flexCheckDefault">{{ $app->app }}</label>
+                            </div>
+                           @endif
+                           @endforeach
+                        </div>
+                        <div class="col-md-3">
+                            <label class="d-flex justify-content-center">{{ __('Informes') }}</label>
+                               @foreach($apps as $app)
+                               @if($app->type_of_app == "Informes")
+                               <div class="form-check ">
+                                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                   <label class="form-check-label d-flex justify-content-center" for="flexCheckDefault">{{$app->app}}</label>
+                               </div>
+                               @endif
+                               @endforeach
+                               </div>
+                               <div class="col-md-3">
+                                <label class="d-flex justify-content-center">{{ __('Aplicaciones') }}</label>
+                                   @foreach($apps as $app)
+                                   @if($app->type_of_app == "Aplicaciones")
+                                   <div class="form-check ">
+                                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                       <label class="form-check-label d-flex justify-content-center" for="flexCheckDefault">{{$app->app}}</label>
+                                   </div>
+                                   @endif
+                                   @endforeach
+                            </div>
+                       </div>
+   
 
-                        <div class="row mb-0">
+                        <div class="row d-flex justify-content-center">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-dark">
+                                <button type="submit" class="btn btn-warning">
                                     {{ __('Registrarse') }}
                                 </button>
                             </div>
