@@ -108,8 +108,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'id' => (int) $this->id,
         'name' => $this->name,
         'email' => $this->email,
-        'customer_id'=> $this->customer,
-        'profile_id'=> $this->profile,
+     
     ];
 }
 public function customer()

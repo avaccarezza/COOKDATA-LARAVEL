@@ -27,11 +27,6 @@
     <link rel="stylesheet" href="{{ URL::asset('../css/testimonials.css') }}">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500" rel="stylesheet">
-    <link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/animate/animate.min.css">
-    <link rel="stylesheet" href="../css/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="../css/owl-carousel/owl.theme.default.min.css">
     <!-- Whatsapp widget -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Fonts -->
@@ -46,7 +41,6 @@
 <!--Global JavaScript -->
 <script src="../js/jquery/jquery.min.js"></script>
 <script src="../js/popper/popper.min.js"></script>
-<script src="../js/bootstrap/bootstrap.min.js"></script>
 <script src="../js/wow/wow.min.js"></script>
 <script async src="../js/carousel-slider.js"></script>
 
@@ -62,7 +56,8 @@
 <body>
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light  shadow-sm p-0 d-none d-md-block" style="background-color: #F0F0F0;" >
+        @if(Request::is('/'))
+        <nav class="navbar navbar-expand-md navbar-light  shadow-sm p-0 d-none d-md-block position-relative z-3" style="background-color: #F0F0F0;" >
             <div class="container">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -78,11 +73,12 @@
                 </ul>
             </div>
         </nav>
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" data-toggle="affix">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm z-index-3" data-toggle="affix">
             <div class="container">
                 <img src="{{ URL::asset('img/utilities/headerkitdigital.png')}}" width="100%">
             </div>
         </nav>
+        @endif
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             
             <div class="container">
@@ -189,7 +185,7 @@
                         @if(optional(auth()->user())->isAdmin())  
                        
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('panel') }}" >Panel</a>
+                            <a class="nav-link" href="{{ route('users.index') }}" >Panel</a>
                         </li>
                         @endif
                         

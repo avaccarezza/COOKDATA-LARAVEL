@@ -1,7 +1,6 @@
-@extends('layouts.app')
+@extends('panel')
 
-@section('content')
-<h1 class="display-6 text-dark text-center">Lista de Consultores</h1>
+@section('content-panel')
     
       <nav class="navbar navbar-light bg-light d-flex flex-row-reverse">
         

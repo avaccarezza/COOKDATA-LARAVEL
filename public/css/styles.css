@@ -1924,7 +1924,7 @@ p {
 ======================================================*/
 
 .contact-h-bg {
-    background-image: url(../img/contact-bg-min.jpg);
+    background-image: url(../img/home/contact-bg-min.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1962,6 +1962,8 @@ p {
 .footer-s1 .footer {
     padding: 70px 0;
     background: #f0f0f0;
+    position:relative;
+    z-index: 1000;
 }
 
 .footer-s1 .footer .comp-desc-f p {
@@ -2108,6 +2110,8 @@ address.address-details-f a {
 #footer-bottom {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 30px 0;
+    position:relative;
+    z-index: 1000;
 }
 
 #footer-copyrights p {
@@ -2663,116 +2667,48 @@ label.error {
     }
     .my-float{
         margin-top:16px;
-    }/*
-      .floating-wpp {
+    }
+
+    /*sidebar-panel*/
+    body {
+        background-color: #fbfbfb;
+      }
+      @media (min-width: 991.98px) {
+        main {
+          padding-left: 240px;
+        }
+      }
+      
+      /* Sidebar */
+      .sidebar {
         position: fixed;
-        bottom: 15px;
-        left: 15px;
-        font-size: 14px;
-        transition: bottom 0.2s;
-    }
-    
-    .floating-wpp .floating-wpp-button {
-        position: relative;
-        border-radius: 50%;
-        box-shadow: 1px 1px 4px rgba(60, 60, 60, 0.4);
-        transition: box-shadow 0.2s;
-        cursor: pointer;
-        overflow: hidden;
-    }
-    
-    .floating-wpp .floating-wpp-button img,
-    .floating-wpp .floating-wpp-button svg {
-        position: absolute;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        top: 50%;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        border-radius: 50%;
-    }
-    
-    .floating-wpp:hover {
-        bottom: 17px;
-    }
-    
-    .floating-wpp:hover .floating-wpp-button {
-        box-shadow: 1px 2px 8px rgba(60, 60, 60, 0.4);
-    }
-    
-    .floating-wpp .floating-wpp-popup {
-        
-        border-radius: 6px;
-        background-color: #E5DDD5;
-        position: absolute;
-        overflow: hidden;
-        padding: 0;
-        box-shadow: 1px 2px 8px rgba(60, 60, 60, 0.25);
-        width: 0px;
-        height: 0px;
+        top: 0;
         bottom: 0;
-        opacity: 0;
-        transition: bottom 0.1s ease-out, opacity 0.2s ease-out;
-        transform-origin: bottom;
-    }
-    
-    .floating-wpp .floating-wpp-popup.active {
-        padding: 0 12px 12px 12px;
-        width: 260px;
-        height: auto;
-        bottom: 82px;
-        opacity: 1;
-    }
-    
-    .floating-wpp .floating-wpp-popup .floating-wpp-message {
-        background-color: white;
-        padding: 8px;
-        border-radius: 0px 5px 5px 5px;
-        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        transition: opacity 0.2s;
-    }
-    
-    .floating-wpp .floating-wpp-popup.active .floating-wpp-message {
-        opacity: 1;
-        transition-delay: 0.2s;
-    }
-    
-    .floating-wpp .floating-wpp-popup .floating-wpp-head {
-        text-align: right;
-        color: white;
-        margin: 0 -15px 10px -15px;
-        padding: 6px 12px;
-        display: flex;
-        justify-content: space-between;
-        cursor: pointer;
-    }
-    
-    .floating-wpp .floating-wpp-input-message {
-        background-color: white;
-        margin: 10px -15px -15px -15px;
-        padding: 0 15px;
-        display: flex;
-        align-items: center;
-    }
-    
-    .floating-wpp .floating-wpp-input-message textarea {
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-shadow: none;
-        padding: 8px;
-        margin: 10px 0;
-        width: 100%;
-        max-width: 100%;
-        font-family: inherit;
-        font-size: inherit;
-        resize: none;
-    }
-    
-    .floating-wpp .floating-wpp-btn-send {
-        margin-left: 12px;
-        font-size: 0;
-        cursor: pointer;
-    }
-    */
+        left: 0;
+        padding: 58px 0 0; /* Height of navbar */
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+        width: 240px;
+        z-index: 1;       
+      }
+      
+      @media (max-width: 991.98px) {
+        .sidebar {
+          width: 100%;
+        }
+      }
+      .sidebar .active {
+        border-radius: 5px;
+        background-color: #ffc107 !important;
+        color:#000 !important;
+      }
+      
+      .sidebar-sticky {
+        position: relative;
+        top: 0;
+        height: calc(100vh - 48px);
+        padding-top: 0.5rem;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+      }
+
+     

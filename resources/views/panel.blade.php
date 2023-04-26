@@ -1,53 +1,60 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="wrapper d-flex align-items-stretch">
-    <nav id="sidebar">
-        <div class="p-4 pt-5">
-    <ul class="list-unstyled components mb-5">
-      <li class="active">
-        <a href="{{ route('users.index') }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Listado usuarios</a>   
-        <ul class="collapse list-unstyled" id="homeSubmenu">
-        <li>
-            <a href="#">Home 1</a>
-        </li>
-        <li>
-            <a href="#">Home 2</a>
-        </li>
-        <li>
-            <a href="#">Home 3</a>
-        </li>
-        </ul>
-      </li>
-      <li>
-          <a href="{{ route('consultants_list.index') }}">Listado consultores</a>
-      </li>
-      <li>
-      <a href="{{ route('customers_area.index') }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Listado de clientes</a>
-      <ul class="collapse list-unstyled" id="pageSubmenu">
-        <li>
-            <a href="#">Page 1</a>
-        </li>
-        <li>
-            <a href="#">Page 2</a>
-        </li>
-        <li>
-            <a href="#">Page 3</a>
-        </li>
-      </ul>
-      </li>
-      <li>
-        <a href="{{ route('apps.index') }}">Listado de apps</a>
-      </li>
-      <li>
-      <a href="https://short.io/">Short.io</a>
-      </li>
-    </ul>
+<nav
+id="sidebarMenu"
+class="collapse d-lg-block sidebar collapse bg-white "
+>
+<div>
+<div class="list-group list-group-flush mx-3 mt-4">
 
-    
-
-  </div>
+ <a
+    href="{{ route('users.index') }}"
+    class="list-group-item list-group-item-action py-2 ripple {{ (request()->route()->getName() == 'users.index') ? 'active' : '' }}"
+    ><i class="fas fa-chart-line fa-fw me-3"></i
+   ><span>Listado de usuarios</span></a
+   >
+ <a
+    href="{{ route('consultants_list.index') }}"
+    class="list-group-item list-group-item-action py-2 ripple {{ (request()->route()->getName() == 'consultants_list.index') ? 'active' : '' }}"
+    >
+   <i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de consultores</span>
+ </a>
+ <a
+ href="#"
+ class="list-group-item list-group-item-action py-2 ripple"
+ >
+<i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de clientes</span>
+</a>
+<a
+ href="#"
+ class="list-group-item list-group-item-action py-2 ripple"
+ >
+<i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de perfiles</span>
+</a>
+<a
+href="#"
+class="list-group-item list-group-item-action py-2 ripple"
+>
+<i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de partners</span>
+</a>
+ <a
+    href="{{url('https://short.io/')}}" target="blank"
+    class="list-group-item list-group-item-action py-2 ripple"
+    >
+   <i class="fas fa-chart-pie fa-fw me-3"></i><span>Short.io</span>
+ </a>
+ 
+ 
+</div>
+</div>
 </nav>
+
+<!--Main layout-->
+
+  @yield('content-panel')
+
+<!--Main layout-->
 
 
 @endsection

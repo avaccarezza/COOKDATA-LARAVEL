@@ -21,9 +21,7 @@ class UserController extends Controller
         else:
             $users = User::sortable()->get();
         endif;
-         
-       
-        
+
         return view( 'users.index', compact('users'));
     }
     public function create(){
