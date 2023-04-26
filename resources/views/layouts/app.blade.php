@@ -10,7 +10,6 @@
     <link rel="icon" href="{{ URL::asset('img/utilities/favicon.ico')}}"> 
     <title>Cookdata</title>
     <!-- Core Stylesheets -->
-    <link rel="stylesheet" href="{{ URL::asset('../css/animate/animate.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/about.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/careers.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/carousel-slider.css') }}">
@@ -23,22 +22,45 @@
     <link rel="stylesheet" href="{{ URL::asset('../css/services.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/shop.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/single-product.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('../css/styles.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/team.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/styles.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/testimonials.css') }}">
 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/animate/animate.min.css">
+    <link rel="stylesheet" href="../css/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl-carousel/owl.theme.default.min.css">
+    <!-- Whatsapp widget -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
-    <script src="{{ asset('../js/custom.js') }}" defer></script>
+    <script src="{{ URL::asset('../js/custom.js') }}" defer></script>
+<!--Global JavaScript -->
+<script src="../js/jquery/jquery.min.js"></script>
+<script src="../js/popper/popper.min.js"></script>
+<script src="../js/bootstrap/bootstrap.min.js"></script>
+<script src="../js/wow/wow.min.js"></script>
+<script async src="../js/carousel-slider.js"></script>
 
-    
+<!-- Plugin JavaScript -->
+<script src="../js/jquery-easing/jquery.easing.min.js"></script>
+<script src="../js/custom.js"></script>
+
+<!--JS Form -->
+<script async src="../js/jquery.validate.min.js"></script>
+<script async src="../js/main.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
 </head>
 <body>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light  shadow-sm p-0 d-none d-md-block" style="background-color: #F0F0F0;" >
             <div class="container">
@@ -47,7 +69,7 @@
                         <a class="nav-link text-dark" href="mailto:decidecondatos@cookdata.io">decidecondatos@cookdata.io</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark">(+54) 11 3561 3735</a>
+                        <a class="nav-link text-dark" target="blank" href="https://wa.me/34667316307/">(+54) 11 3561 3735</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" target="blank" href="https://wa.me/34667316307/">(+34) 667 316 307</a>
@@ -56,12 +78,12 @@
                 </ul>
             </div>
         </nav>
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" data-toggle="affix">
             <div class="container">
                 <img src="{{ URL::asset('img/utilities/headerkitdigital.png')}}" width="100%">
             </div>
         </nav>
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -87,25 +109,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#clientes">Clientes</a>
                         </li>
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="#contacto">Contactos</a>
                         </li>
-                        <div class="collapse navbar-collapse" id="navbarNavWhiteDropdown">
-                            <ul class="navbar-nav">
-                              <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarWhiteDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Partners
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-white" aria-labelledby="navbarWhiteDropdownMenuLink">
-                                  <li><a class="dropdown-item" href="{{ route('partners.index')}}">Agora</a></li> 
-                                </ul>
-                              </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarWhiteDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Partners
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-white" aria-labelledby="navbarWhiteDropdownMenuLink">
+                              <li><a class="dropdown-item" href="{{ route('partners_section.index')}}">Agora</a></li> 
                             </ul>
-                          </div>
+                        </li>
                        @endif
                     </ul>
-
-                    <ul class="navbar-nav ms-auto">     
+                        <ul class="navbar-nav ms-auto">     
                     @if(Route::current()->getName() == 'customers_area.index') 
                     <!-- Right Side Of Navbar -->
                     <li class="nav-item dropdown">
@@ -113,10 +131,10 @@
                             Soporte
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            @foreach (Auth::user()->customer->apps as $aplicacion)
-                            @if( $aplicacion->type_of_app == 'Soporte')
-                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://cookdata.link/{{Auth::user()->customer->customer}}_APP_{{$aplicacion->app }}" target="blank">
-                               {{$aplicacion->app}} 
+                            @foreach (Auth::user()->customer->apps as $app)
+                            @if( $app->type_of_app == 'Soporte')
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                                {{$app->app}}
                             </a>
                             @endif
                             @endforeach
@@ -129,10 +147,10 @@
                             Informes
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            @foreach (Auth::user()->customer->apps as $aplicacion)
-                            @if( $aplicacion->type_of_app == 'Informes')
-                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://cookdata.link/{{Auth::user()->customer->customer}}_APP_{{$aplicacion->app }}" target="blank">
-                               {{$aplicacion->app}} 
+                            @foreach (Auth::user()->customer->apps as $app)
+                            @if( $app->type_of_app == 'Informes')
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                                {{$app->app}}
                             </a>
                             @endif
                             @endforeach
@@ -145,23 +163,27 @@
                             Apps Mobile
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            @foreach (Auth::user()->customer->apps as $aplicacion)
-                            @if( $aplicacion->type_of_app == 'Aplicaciones')
-                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://cookdata.link/{{Auth::user()->customer->customer}}_APP_{{$aplicacion->app }}" target="blank">
-                               {{$aplicacion->app}} 
+                            @foreach (Auth::user()->customer->apps as $app)
+                            @if( $app->type_of_app == 'Aplicaciones')
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                                {{$app->app}}
                             </a>
                             @endif
                             @endforeach
-                           
                         </div>
+                      
                     </li>
+                    
                     @endif
                     @if(optional(auth()->user())->isConsultant())  
-                       
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('consultants.index') }}" >Area de consultores</a>
                         </li>
-                        @endif
+                    @elseif(optional(auth()->user())->isUser() && !Request::is('customers_area') ) 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('customers_area.index') }}" >Area de clientes</a>
+                        </li>
+                    @endif
                     <!--1- funcion del IF:  muestra el elemento de Panel si el usuario es Admin
                         2- optional() es un helper, que si auth()->user() retorna null la funcion isAdmin() nunca es llamada   --> 
                         @if(optional(auth()->user())->isAdmin())  
@@ -221,10 +243,10 @@
                 </div>
             </div>
         </nav>
-@unless(Request::is('/'))
+@unless(Request::is('/') || Request::is('customers_area') || Request::is('panel') )
         <main class="py-4">
-@endunless
             <div class="container-fluid">
+                @endunless
                 @if (session()->has('success'))
                     <div class="alert alert-success">
                         {{ session()->get('success') }}

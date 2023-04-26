@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('app');
             $table->string('type_of_app');
+            $table->string('path');
             $table->bigInteger('customer_id')->unsigned();
             $table->timestamps();
 

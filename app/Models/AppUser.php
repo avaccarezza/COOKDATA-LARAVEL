@@ -10,22 +10,13 @@ use Illuminate\Database\Eloquent\Model;
 class App extends Model
 {
     use HasFactory;
-    protected $table = 'apps';
+    protected $table = 'app_user';
     //optimiza la cantidad de consultas de la base de datos de forma global
    
     protected $fillable = [
         
-        'app',
-        'type_of_app',
-        'path',
-        'customer_id',
+        
     ];
 
-    public function customer(){
-        return $this->belongsTo(Customer::class);
-    }
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'app_user');
-    }
+   
 }

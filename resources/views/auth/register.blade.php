@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-5 mb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Registrarse') }}</div>
 
-                <div class="card-body">
+                <div class="card-body  pb-5">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -129,7 +129,7 @@
                     <label class="col-md-3 col-form-label text-md-center">{{ __('Informes') }}</label>
                      @endforeach--}}
                     <!-- checkbox apps-->
-                    <div class="row d-flex justify-content-center">
+                    {{--<div class="row d-flex justify-content-center">
                         <div class="col-md-3">
                             <label class="d-flex justify-content-center">{{ __('Soporte') }}</label>
                             @foreach($apps as $app)
@@ -163,7 +163,7 @@
                                    @endif
                                    @endforeach
                             </div>
-                       </div>
+                       </div>--}}
    
 
                         <div class="row d-flex justify-content-center">

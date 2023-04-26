@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
-       
-  
+
 <!--====================================================
                          HOME
 ======================================================-->
@@ -21,7 +20,7 @@
                            </h1>
                            <h3>Toda la información de tu negocio en tiempo real<br> Accede desde una plataforma única en cualquier<br> momento y desde cualquier lugar</h3>
                        </hgroup>
-                       <a href="#contactanosform" class="smooth-scrolls" style=text-decoration:none><button class="btn btn-general btn-green wow fadeInUp btnMovementTransition">Hablemos</button></a>
+                       <a href="#contactanosform" class="smooth-scrolls" style=text-decoration:none><button class="btn btn-warning">Hablemos</button></a>
                    </div>
                </div>
            </div>
@@ -45,26 +44,27 @@
     </div>
 </section>
 <!-- termina titulo -->
-
 <!--====================================================
-              BANNER BAR DATA DRIVEN
+                  BANNER BAR DATA DRIVEN
 ======================================================-->
 <div class="overlay-thought"></div>
 <section class="bg-parallax thought-bg">
-<section id="about" class="career-p1 about">
-    <!-- titulo -->
-    <div class="container">
-        <div class="row title-bar-though">
-            <div class="col-md-12">
-                <h1 class="wow fadeInUp">BAR DATA DRIVEN</h1>
-                <p class="wow fadeInUp" data-wow-delay="0.4s">
-                    <h2 class="wow fadeInUp">Inteligencia de negocios, la solución integral para mejorar los resultados de tu negocio</h2>
-                </p>
-                <div class="title-but"><button onclick="window.location.href='{{route('partners.index')}}'" class="btnthough btn btn-general btn-green" role="button">Conoce más</button></div>
+    <section id="about" class="career-p1 about">
+        <!-- titulo -->
+        <div class="container">
+            <div class="row title-bar-though">
+                <div class="col-md-12">
+                    <h1 class="wow fadeInUp">BAR DATA DRIVEN</h1>
+                    <p class="wow fadeInUp" data-wow-delay="0.4s">
+                    <h2 class="wow fadeInUp">Inteligencia de negocios, la solución integral para mejorar los
+                        resultados de tu negocio</h2>
+                    </p>
+                    <div class="title-but"><button onclick="{{route('partners_section.index')}}" class="btnthough btn btn-general btn-green"
+                            role="button">Conoce más</button></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </section>
 
 <!--====================================================
@@ -152,7 +152,9 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="service-himg">
-                    <iframe src="https://www.youtube.com/embed/ajBek9CWklE?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5VRATxpLQUg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    
+                    
                 </div>
             </div>
             <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -430,4 +432,7 @@
     </div>
 </section>
 
+<a href="https://api.whatsapp.com/send?phone=34667316307&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n." class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
 @endsection

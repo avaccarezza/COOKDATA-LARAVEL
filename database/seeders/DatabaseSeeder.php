@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\App;
+use App\Models\AppUser;
 use App\Models\Consultant;
 use App\Models\Customer;
 use App\Models\Image;
@@ -22,10 +23,10 @@ class DatabaseSeeder extends Seeder
     {
         $profiles = Profile::factory(3)->create();  
         $customers = Customer::factory(3)->create();  
+        $users = User::factory(30)->create();
         $apps = App::factory(10)->create();
-        $users = User::factory(20)->create();
         $consultants = Consultant::factory(10)->create();
-
+       $app_users =  AppUser::factory()->count(10)->create();
         
     }
 }

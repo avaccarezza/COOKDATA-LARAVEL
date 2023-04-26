@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-5 mb-5">
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">

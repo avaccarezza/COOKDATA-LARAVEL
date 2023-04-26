@@ -19,6 +19,7 @@ class AppFactory extends Factory
         return [
             'app' => $this->faker->randomElement(['Database','Gestion','Produccion']),
             'type_of_app' => $this->faker->randomElement(['Informes','Aplicaciones','Soporte']),
+            'path' => $this->faker->randomElement(['www.google.es','www.youtube.com','www.amazon.es']),
             'customer_id' =>$this->faker->randomElement([1,2,3]),
             
 

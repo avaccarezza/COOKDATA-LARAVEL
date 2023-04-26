@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\App;
 use App\Models\Customer;
 use App\Models\Profile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -14,7 +15,7 @@ use Laravel\Scout\Searchable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, Searchable, Sortable;
+    use HasApiTokens, HasFactory, Notifiable, Searchable, Sortable, SoftDeletes;
     
     protected $table = "users";
     public $sortable = ['id','name','email','customer_id','profile_id'];
@@ -84,6 +85,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->consultant == 1;
     }
+    public function isUser()
+    {
+        return $this->consultant == 0;
+    }
 
 
     //hash de password
@@ -103,6 +108,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'id' => (int) $this->id,
         'name' => $this->name,
         'email' => $this->email,
+        'customer_id'=> $this->customer,
+        'profile_id'=> $this->profile,
     ];
 }
 public function customer()
@@ -128,6 +135,11 @@ public function user(){
     {
     $this->sortColumn = $column;
     $this->sortDirection = $this->sortDirection == 'asc' ? 'desc' : 'asc';
+    }
+
+    public function apps()
+    {
+        return $this->belongsToMany(App::class, 'app_user');
     }
 }
 

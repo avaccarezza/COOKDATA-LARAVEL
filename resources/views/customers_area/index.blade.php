@@ -3,12 +3,14 @@
 <!--====================================================
                        HOME-P
 ======================================================-->
+
 <div id="home-p" class="home-p pages-head1 text-center">
-  <div class="container">
-      <h1 class="wow fadeInUp" data-wow-delay="0.1s"><h2>{{Auth::user()->customer->customer}}</h2></h1>
-  </div>
-  <!--/end container-->
+    <div class="container">
+        <h1 class="wow fadeInUp" data-wow-delay="0.1s"> {{Auth::user()->customer->customer}}</h1>
+    </div>
+    <!--/end container-->
 </div>
+
     <!--====================================================
                       NEWS DETAILS
 ======================================================-->

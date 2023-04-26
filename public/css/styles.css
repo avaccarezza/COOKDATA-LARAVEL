@@ -28,6 +28,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 html,
 body {
     height: 100%;
+   
 }
 
 body {
@@ -1324,17 +1325,19 @@ p {
 
 .thought-bg {
     height: 300px;
-    background-image: url(../img/customer_area/banner-5-min.jpg);
+    background-image: url(../img/customer-area/banner-5-min.jpg);
+    
+   
 }
 
 .thought-bg-2 {
     height: 80px;
-    background-image: url(../img/customer_area/bannerheader3.jpg);
+    background-image: url(../img/customer-area/bannerheader3.jpg);
 }
 
 .thought-bi-bg {
     height: 300px;
-    background-image: url(../img/customer_area/banner-4-min.jpg);
+    background-image: url(../img/customer-area/banner-4-min.jpg);
 }
 
 .title-bar-thought p {
@@ -2345,7 +2348,7 @@ label.error {
     right: 40px;
     transition: all 300ms ease 0ms;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    z-index: 99;
+    z-index: 1021;
   }
   .btn-flotante:hover {
     background-color: #f8d468; /* Color de fondo al pasar el cursor */
@@ -2569,3 +2572,207 @@ label.error {
     width: 100%;
     
   }
+
+  /* color de los laterales en seccion partner */
+  .fondo-4{
+    background-color:#F0F0F0;
+  
+  }
+  .fondo-5{
+    background-color: #EEEEEE;
+  
+  }
+
+  /*panel sidebar*/
+  #sidebar {
+    min-width: 300px;
+    max-width: 300px;
+    background: #1d1919;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+    #sidebar.active {
+      margin-left: -300px; }
+    #sidebar .logo {
+      display: block;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto; }
+      #sidebar .logo span {
+        display: block; }
+    #sidebar ul.components {
+      padding: 0; }
+    #sidebar ul li {
+      font-size: 16px; }
+      #sidebar ul li > ul {
+        margin-left: 10px; }
+        #sidebar ul li > ul li {
+          font-size: 14px; }
+      #sidebar ul li a {
+        padding: 10px 0;
+        display: block;
+        color: rgba(255, 255, 255, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        #sidebar ul li a:hover {
+          color: #f8b739; }
+      #sidebar ul li.active > a {
+        background: transparent;
+        color: #f8b739; }
+    @media (max-width: 991.98px) {
+      #sidebar {
+        margin-left: -300px; }
+        #sidebar.active {
+          margin-left: 0; } }
+  
+  a[data-toggle="collapse"] {
+    position: relative; }
+  
+  .dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  
+  @media (max-width: 991.98px) {
+    #sidebarCollapse span {
+      display: none; } }
+
+      /*floating whatsapp*/
+      
+      .float{
+        position:fixed;
+        width:60px;
+        height:60px;
+        bottom:40px;
+        left:40px;
+        background-color:#25d366;
+        color:#FFF;
+        border-radius:50px;
+        text-align:center;
+      font-size:30px;
+        box-shadow: 2px 2px 3px #999;
+      z-index:100;
+    }
+    .float:hover{
+       bottom:42px;
+       color:white;
+    }
+    .my-float{
+        margin-top:16px;
+    }/*
+      .floating-wpp {
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        font-size: 14px;
+        transition: bottom 0.2s;
+    }
+    
+    .floating-wpp .floating-wpp-button {
+        position: relative;
+        border-radius: 50%;
+        box-shadow: 1px 1px 4px rgba(60, 60, 60, 0.4);
+        transition: box-shadow 0.2s;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    
+    .floating-wpp .floating-wpp-button img,
+    .floating-wpp .floating-wpp-button svg {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        border-radius: 50%;
+    }
+    
+    .floating-wpp:hover {
+        bottom: 17px;
+    }
+    
+    .floating-wpp:hover .floating-wpp-button {
+        box-shadow: 1px 2px 8px rgba(60, 60, 60, 0.4);
+    }
+    
+    .floating-wpp .floating-wpp-popup {
+        
+        border-radius: 6px;
+        background-color: #E5DDD5;
+        position: absolute;
+        overflow: hidden;
+        padding: 0;
+        box-shadow: 1px 2px 8px rgba(60, 60, 60, 0.25);
+        width: 0px;
+        height: 0px;
+        bottom: 0;
+        opacity: 0;
+        transition: bottom 0.1s ease-out, opacity 0.2s ease-out;
+        transform-origin: bottom;
+    }
+    
+    .floating-wpp .floating-wpp-popup.active {
+        padding: 0 12px 12px 12px;
+        width: 260px;
+        height: auto;
+        bottom: 82px;
+        opacity: 1;
+    }
+    
+    .floating-wpp .floating-wpp-popup .floating-wpp-message {
+        background-color: white;
+        padding: 8px;
+        border-radius: 0px 5px 5px 5px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    
+    .floating-wpp .floating-wpp-popup.active .floating-wpp-message {
+        opacity: 1;
+        transition-delay: 0.2s;
+    }
+    
+    .floating-wpp .floating-wpp-popup .floating-wpp-head {
+        text-align: right;
+        color: white;
+        margin: 0 -15px 10px -15px;
+        padding: 6px 12px;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+    
+    .floating-wpp .floating-wpp-input-message {
+        background-color: white;
+        margin: 10px -15px -15px -15px;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .floating-wpp .floating-wpp-input-message textarea {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: none;
+        padding: 8px;
+        margin: 10px 0;
+        width: 100%;
+        max-width: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        resize: none;
+    }
+    
+    .floating-wpp .floating-wpp-btn-send {
+        margin-left: 12px;
+        font-size: 0;
+        cursor: pointer;
+    }
+    */

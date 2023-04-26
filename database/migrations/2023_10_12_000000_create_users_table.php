@@ -24,6 +24,7 @@ return new class extends Migration
             $table->bigInteger('customer_id')->unsigned()->nullable();
             $table->bigInteger('profile_id')->unsigned()->nullable();
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers');
