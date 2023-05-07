@@ -18,13 +18,13 @@ class Customer extends Model
         'customer',
     ];
 
-     public function user(){
-        return $this->hasOne(User::class);
-    }
+    
     public function apps(){
         return $this->hasMany(App::class);
     }
-    public function consultants(){
-        return $this->hasMany(Consultant::class);
+   
+    public function users()
+    {
+        return $this->morphToMany(User::class, 'consultable');
     }
 }

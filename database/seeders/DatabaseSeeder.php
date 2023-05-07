@@ -21,12 +21,59 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $profiles = Profile::factory(3)->create();  
+    Profile::factory()->create([
+    'profile' => 'Consultor',
+    ]);
+    Profile::factory()->create([
+    'profile' => 'Gerencia',
+    ]);
+    Profile::factory()->create([
+    'profile' => 'Administrador',
+     ]);
+        
         $customers = Customer::factory(3)->create();  
-        $users = User::factory(30)->create();
-        $apps = App::factory(10)->create();
-        $consultants = Consultant::factory(10)->create();
-       $app_users =  AppUser::factory()->count(10)->create();
+        //$users = User::factory(30)->create();
+
+
+        $users = User::factory(10)
+        ->create()
+        ->each(function($user) use ($customers){
+            
+
+            $customer = $customers->random();
+            $image = Image::factory()
+             ->user()
+             ->make();
+             $user->image()->save($image);
+        });
+        /*$users = User::factory(50)
+        ->create()
+        ->each(function($user) use ($customers){
+            
+
+            $customer = $customers->random();
+
+            $customer->users()->attach([
+                $user->id => ['quantity' => mt_rand(1,3)]
+             ]);
+             $image = Image::factory()
+             ->user()
+             ->make();
+             $user->image()->save($image);
+        });*/
+
+
+App::factory()->create([
+'app' => 'Database',
+'type_of_app' => 'Aplicaciones',
+]);
+App::factory()->create([
+'app' => 'Gestion',
+'type_of_app' => 'Aplicaciones',
+]);
+$apps = App::factory(5)->create();
+        //$consultants = Consultant::factory(10)->create();
+       //$app_users =  AppUser::factory()->count(10)->create();
         
     }
 }

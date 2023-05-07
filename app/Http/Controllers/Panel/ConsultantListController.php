@@ -11,7 +11,7 @@ class ConsultantListController extends Controller
     {
       
 
-        $consultants = User::where('consultant', 1)->get(); 
+        $consultants = User::where('profile_id', 1)->get(); 
         return view('consultants_list.index')->with([
             'users' => $consultants,
         ]);

@@ -30,7 +30,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'admin_since',
-        'consultant',
         'customer_id',
         'profile_id',
         
@@ -83,7 +82,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function isConsultant()
     {
-        return $this->consultant == 1;
+        return $this->profile_id == 1;
     }
     public function isUser()
     {
@@ -139,6 +138,12 @@ public function user(){
     public function apps()
     {
         return $this->belongsToMany(App::class, 'app_user');
+    }
+
+    
+    public function customers()
+    {
+        return $this->morphedByMany(Customer::class, 'consultable');
     }
 }
 

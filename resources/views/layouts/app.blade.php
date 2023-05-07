@@ -36,8 +36,9 @@
 
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script src="{{ URL::asset('../js/custom.js') }}" defer></script>
+
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 <!--Global JavaScript -->
 <script src="../js/jquery/jquery.min.js"></script>
 <script src="../js/popper/popper.min.js"></script>
@@ -46,7 +47,7 @@
 
 <!-- Plugin JavaScript -->
 <script src="../js/jquery-easing/jquery.easing.min.js"></script>
-<script src="../js/custom.js"></script>
+<script src={{ URL::asset('../js/custom.js')}}></script>
 
 <!--JS Form -->
 <script async src="../js/jquery.validate.min.js"></script>
@@ -79,6 +80,7 @@
             </div>
         </nav>
         @endif
+        
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             
             <div class="container">
@@ -169,12 +171,45 @@
                         </div>
                       
                     </li>
+                   {{-- <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            prueba
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @foreach (Auth::user()->customers as $customer)
+                          
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                                {{$apps = $apps->merge($customer->apps)}}
+                            </a>
+                         
+                            @endforeach
+                        </div>
+                      
+                    </li>--}}
                     
                     @endif
-                    @if(optional(auth()->user())->isConsultant())  
+                    @if(optional(auth()->user())->isConsultant() && Request::is('customers_area'))
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Clientes
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end"  aria-labelledby="navbarDropdown">
+                            
+                                <a class="dropdown-item d-flex justify-content-center pt-2" href="{{ route('customers_area.show') }}"   >
+                                   
+                                    {{ Auth::user()->customer->customer }}  
+                                   
+                                </a>
+                            
+                        </div>
+                    </li>     
+                   @endif
+                  
+                    @if(optional(auth()->user())->isConsultant() && !Request::is('customers_area') )  
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('consultants.index') }}" >Area de consultores</a>
+                            <a class="nav-link" href="{{ route('customers_area.show') }}" >Area de consultores</a>
                         </li>
+                        
                     @elseif(optional(auth()->user())->isUser() && !Request::is('customers_area') ) 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('customers_area.index') }}" >Area de clientes</a>

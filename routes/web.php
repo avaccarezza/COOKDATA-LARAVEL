@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('main');
 
 Route::get('profile','App\Http\Controllers\ProfileController@index')->name('profile.index');
-
 Route::get('profile/edit','App\Http\Controllers\ProfileController@edit')->name('profile.edit');
 Route::put('profile/edit','App\Http\Controllers\ProfileController@update')->name('profile.update');
-Route::resource('customers_area', 'App\Http\Controllers\CustomerAreaController');
+
+
+Route::get('/customers_area/{id}', 'App\Http\Controllers\CustomerAreaController@show')->name('customers_area.show');
 
 Route::get('partners_section','App\Http\Controllers\PartnerSectionController@index')->name('partners_section.index');
 

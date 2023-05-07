@@ -17,7 +17,7 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            'profile' => $this->faker->randomElement(['Administrador','Gerencia','Sala']),
+            'profile' => $this->faker->randomElement(['Administrador','Gerencia','Consultor']),
         ];
     }
 }

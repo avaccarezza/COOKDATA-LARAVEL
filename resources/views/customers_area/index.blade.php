@@ -6,7 +6,7 @@
 
 <div id="home-p" class="home-p pages-head1 text-center">
     <div class="container">
-        <h1 class="wow fadeInUp" data-wow-delay="0.1s"> {{Auth::user()->customer->customer}}</h1>
+        <h1 class="wow fadeInUp" data-wow-delay="0.1s"> {{ Auth::user()->customer->customer}} </h1>
     </div>
     <!--/end container-->
 </div>
