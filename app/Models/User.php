@@ -86,7 +86,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function isUser()
     {
-        return $this->consultant == 0;
+        return $this->profile_id == 2;
     }
 
 
@@ -118,9 +118,9 @@ public function profile()
 {
     return $this->belongsTo(Profile::class);
 }
-public function user(){
+/*public function user(){
     return $this->hasOne(Consultant::class);
-}
+}*/
 
     public $sortColumn;
     public $sortDirection;
@@ -143,7 +143,7 @@ public function user(){
     
     public function customers()
     {
-        return $this->morphedByMany(Customer::class, 'consultable');
+        return $this->belongsToMany(Customer::class,'customer_user');
     }
-}
+} 
 

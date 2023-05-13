@@ -25,6 +25,6 @@ class Customer extends Model
    
     public function users()
     {
-        return $this->morphToMany(User::class, 'consultable');
+        return $this->belongsToMany(User::class,'customer_user');
     }
 }

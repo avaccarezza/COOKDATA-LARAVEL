@@ -186,34 +186,95 @@
                         </div>
                       
                     </li>--}}
-                    
+                    @elseif(Route::current()->getName() == 'customers_area.show')
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Soporte
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @foreach (Auth::user()->customers as $customer)
+                            @foreach ($customer->apps as $app) 
+                            @if( $app->type_of_app == 'Soporte')         
+                           <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                            {{$app->app}}
+                            </a>
+                            @endif
+                            @endforeach
+                            @endforeach
+                        </div>
+                      
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Informes
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @foreach (Auth::user()->customers as $customer)
+                            @foreach ($customer->apps as $app) 
+                            @if( $app->type_of_app == 'Informes')         
+                           <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                            {{$app->app}}
+                            </a>
+                            @endif
+                            @endforeach
+                            @endforeach
+                        </div>
+                      
+                    </li>
+                   <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Apps Mobile
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @foreach (Auth::user()->customers as $customer)
+                            @foreach ($customer->apps as $app) 
+                            @if( $app->type_of_app == 'Aplicaciones')  
+                           <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                            {{$app->app}}
+                            </a>
+                            @endif
+                            @endforeach
+                            @endforeach
+                        </div>                    
+                    </li>                   
                     @endif
-                    @if(optional(auth()->user())->isConsultant() && Request::is('customers_area'))
+   
+                    @if(optional(auth()->user())->isConsultant() && Request::is('customers_area/*') )
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Clientes
                         </a>
                         <div class="dropdown-menu dropdown-menu-end"  aria-labelledby="navbarDropdown">
                             
-                                <a class="dropdown-item d-flex justify-content-center pt-2" href="{{ route('customers_area.show') }}"   >
-                                   
-                                    {{ Auth::user()->customer->customer }}  
-                                   
+                            @foreach ( Auth::user()->customers as $customer )
+                                <a class="dropdown-item d-flex justify-content-center pt-2" href="{{ route('customers_area.show',  $customer->customer) }}"   >
+                                    {{ $customer->customer}}
                                 </a>
+                            @endforeach
                             
                         </div>
                     </li>     
                    @endif
-                  
-                    @if(optional(auth()->user())->isConsultant() && !Request::is('customers_area') )  
+                   {{--@if(optional(auth()->user())->isConsultant() && !Request::is('customers_area/*'))  
+                    <li class="nav-item">
+                        @foreach ( Auth::user()->customers as $customer )
+                            <a class="nav-link" href="{{ route('customers_area.show',  $customer->customer )}}" >Area de consultores</a>
+                            @break
+                        @endforeach
+                        </li>--}} 
+                        @if(optional(auth()->user())->isConsultant() && !Request::is('customers_area/*') ) 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('customers_area.show') }}" >Area de consultores</a>
+                            @foreach ( Auth::user()->customers as $customer )
+                            <a class="nav-link" href="{{ route('customers_area.show', $customer->customer) }}" >Area de consultores</a>
+                            @break
+                            @endforeach
                         </li>
-                        
                     @elseif(optional(auth()->user())->isUser() && !Request::is('customers_area') ) 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('customers_area.index') }}" >Area de clientes</a>
                         </li>
+                         
+                        
                     @endif
                     <!--1- funcion del IF:  muestra el elemento de Panel si el usuario es Admin
                         2- optional() es un helper, que si auth()->user() retorna null la funcion isAdmin() nunca es llamada   --> 
@@ -274,7 +335,7 @@
                 </div>
             </div>
         </nav>
-@unless(Request::is('/') || Request::is('customers_area') || Request::is('panel') )
+@unless(Request::is('/') || Request::is('customers_area') || Request::is('customers_area/*') ||  Request::is('panel') )
         <main class="py-4">
             <div class="container-fluid">
                 @endunless

@@ -21,22 +21,22 @@ class="collapse d-lg-block sidebar collapse bg-white "
    <i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de consultores</span>
  </a>
  <a
- href="#"
+ href="{{ route('customers.index') }}"
  class="list-group-item list-group-item-action py-2 ripple"
  >
 <i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de clientes</span>
 </a>
-<a
+{{--<a
  href="#"
  class="list-group-item list-group-item-action py-2 ripple"
  >
 <i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de perfiles</span>
-</a>
+</a>--}}
 <a
-href="#"
-class="list-group-item list-group-item-action py-2 ripple"
+href="{{ route('apps.index') }}"
+class="list-group-item list-group-item-action py-2 ripple {{ (request()->route()->getName() == 'apps.index') ? 'active' : '' }}"
 >
-<i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de partners</span>
+<i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de aplicaciones</span>
 </a>
  <a
     href="{{url('https://short.io/')}}" target="blank"

@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Consultant extends Model
+class CustomerUser extends Model
 {
     use HasFactory;
-    protected $table = "consultants";
+    protected $table = "customer_user";
   
     /**
      * The attributes that are mass assignable.
@@ -16,10 +16,8 @@ class Consultant extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        
         'user_id',
         'customer_id',
-     
     ];
 
     public function user()

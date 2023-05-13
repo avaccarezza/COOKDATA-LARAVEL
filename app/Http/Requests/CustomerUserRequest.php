@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AppRequest extends FormRequest
+class CustomerUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,10 @@ class AppRequest extends FormRequest
     public function rules()
     {
         return [
-            'customer' => ['required', 'max:255'],           
-            
-            
+            'customer_id' => ['required', 'min:1'],
+            'user_id' => ['required', 'min:1'],
         ];
     }
 
-    /*public function withValidator($validator)
-    {
-        $validator->after(function ($validator) {
-            if ($this->status == 'available' && $this->stock == 0) {
-                $validator->errors()->add('stock', 'If available must have stock');
-            }
-        });
-    }*/
+   
 }

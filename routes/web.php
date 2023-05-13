@@ -11,7 +11,7 @@ Route::get('profile/edit','App\Http\Controllers\ProfileController@edit')->name('
 Route::put('profile/edit','App\Http\Controllers\ProfileController@update')->name('profile.update');
 
 
-Route::get('/customers_area/{id}', 'App\Http\Controllers\CustomerAreaController@show')->name('customers_area.show');
+Route::resource('/customers_area', 'App\Http\Controllers\CustomerAreaController');
 
 Route::get('partners_section','App\Http\Controllers\PartnerSectionController@index')->name('partners_section.index');
 
@@ -22,19 +22,7 @@ Route::get('hablemos', [App\Http\Controllers\EmailController::class, 'index'])->
 
 Route::post('hablemos', [App\Http\Controllers\EmailController::class, 'store'])->name('hablemos.store');
 
-Route::resource('customers.carts', 'App\Http\Controllers\CustomerCartController')->only(['store' , 'destroy']);
 
-Route::resource('carts', 'App\Http\Controllers\CartController')->only(['index']);
-
-Route::resource('orders', 'App\Http\Controllers\OrderController')
-        ->only(['create','store'])
-        ->middleware(['verified']);
-
-
-
-Route::resource('orders.payments', 'App\Http\Controllers\OrderPaymentController')
-        ->only(['create','store'])
-        ->middleware(['verified']);
 
 Auth::routes(['verify' => true]);
 

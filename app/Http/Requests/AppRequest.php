@@ -25,18 +25,19 @@ class AppRequest extends FormRequest
     {
         return [
             'app' => ['required', 'max:255'],
+            'customer_id' =>['required', 'min:1'],
             'type_of_app' => ['required', 'max:1000'],
             'path' => ['required', 'min:1'],
             
         ];
     }
 
-    public function withValidator($validator)
+    /*public function withValidator($validator)
     {
         $validator->after(function ($validator) {
             if ($this->status == 'available' && $this->stock == 0) {
                 $validator->errors()->add('stock', 'If available must have stock');
             }
         });
-    }
+    }*/
 }

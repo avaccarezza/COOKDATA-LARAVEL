@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\Customer;
+use App\Models\CustomerUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CustomerAreaController extends Controller
 {
@@ -15,15 +17,19 @@ class CustomerAreaController extends Controller
         
         //$auth = Auth::user()->get();
         //$user = User::find($auth);
-        $customer = Customer::all();
-        $apps = collect();
+        $customer = CustomerUser::all();
+       
 
-        return view('customers_area.show', compact('customer'),compact('apps'));
+        return view('customers_area.index', compact('customer'));
     }
-    public function show($id)
+    public function show($customer)
     {
-        $customer = Customer::find($id);
-        return view('customers_area.show', ['customer' => $customer]);
+        $customer = DB::table('customers')->where('customer', $customer)->first();
+
+        
+        return view('customers_area.show')->with([
+            'customer' => $customer,
+        ]);
     }  
 
   

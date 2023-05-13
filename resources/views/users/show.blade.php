@@ -6,11 +6,13 @@
         <div class="card-body">
         <h5 class="card-title">{{$user->name}}</h5>
         <p class="card-text">{{$user->email}}</p>
-        <p class="card-text">{{$user->customer->customer}}</p>
-        <p class="card-text">{{$user->profile->profile}}</p>
-
+        <p class="card-text">Empresa:{{$user->customer->customer}}</p>
+        <p class="card-text">Perfil: {{$user->profile->profile}}</p>
+        <p>clientes asignados:</p>
+        @foreach ($user->customers as $customer)
+        <p class="card-text">{{ $customer->customer }}</p>              
+        @endforeach
         
-        <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
 </div>

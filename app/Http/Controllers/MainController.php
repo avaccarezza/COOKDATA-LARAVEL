@@ -12,10 +12,9 @@ class MainController extends Controller
 }
     public function index()
     {
-        
+    
         return view('welcome')->with([
-            'users' => User::all(),
-            
+            'users' => User::all(),   
         ]);
     }
 }

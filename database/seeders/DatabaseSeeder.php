@@ -8,6 +8,7 @@ use App\Models\App;
 use App\Models\AppUser;
 use App\Models\Consultant;
 use App\Models\Customer;
+use App\Models\CustomerUser;
 use App\Models\Image;
 use App\Models\Profile;
 use App\Models\User;
@@ -72,7 +73,7 @@ App::factory()->create([
 'type_of_app' => 'Aplicaciones',
 ]);
 $apps = App::factory(5)->create();
-        //$consultants = Consultant::factory(10)->create();
+        $customer_user = CustomerUser::factory(10)->create();
        //$app_users =  AppUser::factory()->count(10)->create();
         
     }

@@ -10,41 +10,55 @@
                 </svg>
             </a>
             <div class="card mt-2">
-                
-                <div class="card-header">{{ __('Editar aplicacion') }}</div>
+                <div class="card-header">{{ __('Añadir aplicacion') }}</div>
 
                 <div class="card-body">
-                    <form method="post" action="{{ route('apps.update', ['app' => $app->id]) }}">
+                    <form
+                    method="POST"
+                    action="{{ route('apps.store') }}"
+                    enctype="multipart/form-data"
+                    >
                     @csrf
-                    @method('put')
-
-                    
+                   
                     <div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Aplicacion') }}</label>
                         <div class="col-md-6">
-                            <input  type="text" class="form-control" name="app"  value="{{$app->app}}" required>
+                            <input  type="text" class="form-control" name="app"  value="{{ old('app') }}" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-md-4 col-form-label text-md-end">{{ __('Cliente') }}</label>
+                        <div class="col-md-6">
+                            <select class="form-select" aria-label="Default select example" name="customer_id" required>
+                                <option value="" selected>Seleccionar</option>
+                                @foreach($customers as $c)
+                                <option value="{{$c->id}}">{{$c->customer}}</option>                             
+                                 @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Tipo de aplicacion') }}</label>
                         <div class="col-md-6">
-                            <input  type="text" class="form-control" name="type_of_app"  value="{{$app->type_of_app}}" required>
+                            <select class="form-select" aria-label="Default select example" name="type_of_app" required>
+                                <option value="" selected>Seleccionar</option>
+                               @foreach($apps as $app)
+                               <option value="{{$app->type_of_app}}">{{$app->type_of_app}}</option>                             
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Link') }}</label>
                         <div class="col-md-6">
-                            <input  type="text" class="form-control" name="path"  value="{{$app->path}}" required>
+                            <input  type="text" class="form-control" name="path"  value="" required>
                         </div>
                     </div>
-                
                     
-               
-
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-warning btn-lg">
-                                    {{ __('Editar aplicacion') }}
+                                <button type="submit" class="btn btn-warning btn-md">
+                                    {{ __('Añadir aplicacion') }}
                                 </button>     
                             </div>
                         </div>

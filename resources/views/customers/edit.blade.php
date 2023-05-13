@@ -11,40 +11,37 @@
             </a>
             <div class="card mt-2">
                 
-                <div class="card-header">{{ __('Editar aplicacion') }}</div>
+                <div class="card-header">{{ __('Editar cliente') }}</div>
 
                 <div class="card-body">
-                    <form method="post" action="{{ route('apps.update', ['app' => $app->id]) }}">
+                    <form method="post" action="{{ route('customers.update', ['customer' => $customer->id]) }}">
                     @csrf
                     @method('put')
 
                     
                     <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">{{ __('Aplicacion') }}</label>
+                        <label class="col-md-4 col-form-label text-md-end">{{ __('Clientes') }}</label>
                         <div class="col-md-6">
-                            <input  type="text" class="form-control" name="app"  value="{{$app->app}}" required>
+                            <input  type="text" class="form-control" name="customer"  value="{{$customer->customer}}" required>
                         </div>
                     </div>
-                    <div class="row mb-3">
+
+                    {{--<div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Tipo de aplicacion') }}</label>
                         <div class="col-md-6">
-                            <input  type="text" class="form-control" name="type_of_app"  value="{{$app->type_of_app}}" required>
+                            <select class="form-select" aria-label="Default select example" name="customer" required>
+                                <option value="" selected>Seleccionar</option>
+                               @foreach($customers as $customer)
+                               <option value="{{$customer->customer}}">{{$customer->customer}}</option>                             
+                                @endforeach
+                            </select>
                         </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">{{ __('Link') }}</label>
-                        <div class="col-md-6">
-                            <input  type="text" class="form-control" name="path"  value="{{$app->path}}" required>
-                        </div>
-                    </div>
-                
-                    
-               
+                    </div>--}}
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-warning btn-lg">
-                                    {{ __('Editar aplicacion') }}
+                                    {{ __('Editar cliente') }}
                                 </button>     
                             </div>
                         </div>

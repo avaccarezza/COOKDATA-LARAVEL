@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\HablemosMailable;
 use App\Models\Partner;
+use App\Models\PartnerSection;
 use Illuminate\Http\Request;
 use Mail;
 
@@ -20,7 +21,7 @@ class EmailController extends Controller
         'email' => 'required|email',
         'mensaje' => 'required',
       ]);
-      $partner =  new Partner($request->all());
+      $partner =  new PartnerSection($request->all());
       $partner->save();
       $correo = new HablemosMailable($request->all());
       Mail::to('agustin@cookdata.io')->send($correo);
