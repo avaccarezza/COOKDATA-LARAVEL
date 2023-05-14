@@ -192,15 +192,14 @@
                             Soporte
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            @foreach (Auth::user()->customers as $customer)
-                            @foreach ($customer->apps as $app) 
-                            @if( $app->type_of_app == 'Soporte')         
-                           <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
-                            {{$app->app}}
+                            @php
+                                $customerName = request()->segment(2);
+                            @endphp
+                            @foreach (Auth::user()->customers->whereIn('customer', [$customerName])->first()->apps->where('type_of_app', 'Soporte') as $app)
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                                {{$app->app}}
                             </a>
-                            @endif
-                            @endforeach
-                            @endforeach
+                        @endforeach
                         </div>
                       
                     </li>
@@ -209,15 +208,14 @@
                             Informes
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            @foreach (Auth::user()->customers as $customer)
-                            @foreach ($customer->apps as $app) 
-                            @if( $app->type_of_app == 'Informes')         
-                           <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                            @php
+                            $customerName = request()->segment(2);
+                        @endphp
+                        @foreach (Auth::user()->customers->whereIn('customer', [$customerName])->first()->apps->where('type_of_app', 'Informes') as $app)
+                        <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
                             {{$app->app}}
-                            </a>
-                            @endif
-                            @endforeach
-                            @endforeach
+                        </a>
+                    @endforeach
                         </div>
                       
                     </li>
@@ -226,15 +224,14 @@
                             Apps Mobile
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            @foreach (Auth::user()->customers as $customer)
-                            @foreach ($customer->apps as $app) 
-                            @if( $app->type_of_app == 'Aplicaciones')  
-                           <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
-                            {{$app->app}}
+                            @php
+                                $customerName = request()->segment(2);
+                            @endphp
+                            @foreach (Auth::user()->customers->whereIn('customer', [$customerName])->first()->apps->where('type_of_app', 'Aplicaciones') as $app)
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                                {{$app->app}}
                             </a>
-                            @endif
-                            @endforeach
-                            @endforeach
+                        @endforeach
                         </div>                    
                     </li>                   
                     @endif

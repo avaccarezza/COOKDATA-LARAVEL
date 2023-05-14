@@ -40,11 +40,12 @@ class ConsultantListController extends Controller
     }
     public function store(CustomerUserRequest $request, User $user, Customer $customer)
     {
-        $customer = CustomerUser::create($request->validated());
+
+        $user = CustomerUser::create($request->validated());
         
         return redirect()
         ->route('consultants_list.index')
-        ->withSuccess("Se asigno el cliente con ID {$customer->id} fue editado");
+        ->withSuccess("Se asigno el cliente con ID {$user->id} fue editado");
     } 
 
 }
