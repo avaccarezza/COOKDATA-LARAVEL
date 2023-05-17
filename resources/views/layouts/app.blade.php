@@ -34,11 +34,27 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
 
+  <!--Global JavaScript -->
+  <script src="js/jquery/jquery.min.js"></script>
+  <script src="js/popper/popper.min.js"></script>
+  <script src="js/bootstrap/bootstrap.min.js"></script>
+  <script src="js/wow/wow.min.js"></script>
+  <script async src="js/carousel-slider.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
-    <!-- Scripts -->
-    <script src="{{ URL::asset('../js/custom.js') }}" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+ <!-- Plugin JavaScript -->
+ <script src="js/jquery-easing/jquery.easing.min.js"></script>
+ <script src="js/custom.js"></script>
+
+  <!--JS Form -->
+  <script async src="js/jquery.validate.min.js"></script>
+  <script async src="js/main.js"></script>
+    
 <!--Global JavaScript -->
 <script src="../js/jquery/jquery.min.js"></script>
 <script src="../js/popper/popper.min.js"></script>
@@ -49,6 +65,7 @@
 <script src="../js/jquery-easing/jquery.easing.min.js"></script>
 <script src={{ URL::asset('../js/custom.js')}}></script>
 
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])
 <!--JS Form -->
 <script async src="../js/jquery.validate.min.js"></script>
 <script async src="../js/main.js"></script>
@@ -123,6 +140,21 @@
                     </ul>
                         <ul class="navbar-nav ms-auto">     
                     @if(Route::current()->getName() == 'customers_area.index') 
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Utilidades
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @foreach (Auth::user()->customer->apps as $app)
+                            @if( $app->type_of_app == 'Utilidades')
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                                {{$app->app}}
+                            </a>
+                            @endif
+                            @endforeach
+                           
+                        </div>
+                    </li>
                     <!-- Right Side Of Navbar -->
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -187,6 +219,22 @@
                       
                     </li>--}}
                     @elseif(Route::current()->getName() == 'customers_area.show')
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Utilidades
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @php
+                                $customerName = request()->segment(2);
+                            @endphp
+                            @foreach (Auth::user()->customers->whereIn('customer', [$customerName])->first()->apps->where('type_of_app', 'Utilidades') as $app)
+                            <a class="dropdown-item d-flex justify-content-center pt-2" href="https://{{$app->path}}" target="blank">
+                                {{$app->app}}
+                            </a>
+                        @endforeach 
+                        </div>
+                      
+                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Soporte
@@ -360,7 +408,7 @@
  <!--====================================================
                       FOOTER
 ======================================================-->
-<footer>
+<footer >
     <div id="footer-s1" class="footer-s1">
         <div class="footer">
             <div class="container">
@@ -453,7 +501,7 @@
     </div>
 
     <div id="footer-bottom">
-        <div class="container">
+        <div class="container ">
             <div class="row">
                 <div class="col-md-12">
                     <div id="footer-copyrights">

@@ -31,21 +31,7 @@
     <a href="#formulario-partners" class="btn-flotante">Hablemos</a>
 
     <div id="app">
-        @if (session()->has('success'))
-        <div class="alert alert-success">
-            {{ session()->get('success') }}
-        </div>
-    @endif
-
-    @if (isset($errors) && $errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+        
         <nav class="navbar navbar-expand-md navbar-light  shadow-sm p-0 d-none d-md-block" style="background-color: #F0F0F0;" >
             
             <div class="container">
@@ -89,7 +75,6 @@
                 </ul>
             </div>
         </nav>
-
          <!-- section 1-->
          <div class="row">
             <div class="col-md-2  bg-white"></div>
@@ -125,18 +110,39 @@
         <!-- section 5-->
         <div class="row">
             <div class="col-md-2 fondo-5"></div>
-                <div class="col-md-8 p-0">
-                    <img src="{{ URL::asset('img/partners/seccion-5.png') }}" alt="seccion5" class="seccion-partners" width="100%" > 
-                </div>
-            <div class="col-md-2 fondo-5"></div>
+            <div class="col-md-8 p-0">
+                <img src="{{ URL::asset('img/partners/seccion-5.png') }}" alt="seccion5" class="seccion-partners" width="100%" > 
+            </div>
+            <div class="col-md-2 fondo-5"></div> 
         </div>
 
-<a id="formulario-partners"></a>
-<div class="container p-5">
-<div class="card mb-3">
-    <div class="card-body">
+    <a id="formulario-partners" ></a>
+
+    <div class="container p-5">
+    <div class="card mb-3">
     
+    <div class="card-body">
         <div class="row">
+            <div class="py-4">
+                
+                @if(session('success'))
+            <script>
+                window.location = '#formulario-partners';
+            </script>
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
+        
+            @if (isset($errors) && $errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif</div>
             <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
                 <img  src="{{ URL::asset('img/partners/form-partners.png')}}" alt="form-partners" class="img-fluid" style="height: 700px;">
             </div>

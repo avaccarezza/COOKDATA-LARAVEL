@@ -45,7 +45,16 @@ class ConsultantListController extends Controller
         
         return redirect()
         ->route('consultants_list.index')
-        ->withSuccess("Se asigno el cliente con ID {$user->id} fue editado");
+        ->withSuccess("Se asigno el cliente al usuario con ID {$user->id}");
     } 
+    
+    //Elimina datos de la tabla customer_user 
+    public function removeCustomer($userId, $customerId)
+    {
+        $user = User::findOrFail($userId);
+        $user->customers()->detach($customerId);
+
+        return redirect()->back()->with('success', 'Relación eliminada correctamente.');
+    }
 
 }

@@ -7,7 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\Customer;
 use App\Models\Profile;
 use App\Models\User;
-use App\Models\App;
+
 use Illuminate\Support\Facades\Request;
 class UserController extends Controller
 {
@@ -54,7 +54,7 @@ class UserController extends Controller
     }   
     
     public function update(UserRequest $request , User $user,Customer $customer){
-       
+        
         $user->update($request->validated());
       
        return redirect()
@@ -69,6 +69,7 @@ class UserController extends Controller
                 ->route('users.index')
                 ->withSuccess("El usuario con ID {$user->id} fue eliminado");
     }
+    
     
 
 }

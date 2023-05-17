@@ -19,24 +19,19 @@
                     enctype="multipart/form-data"
                     >
                     @csrf
-                   
-                 {{-- <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">{{ __('Aplicacion') }}</label>
-                        <div class="col-md-6">
-                            <input  type="text" class="form-control" name="app"  value="{{ old('app') }}" required>
-                        </div>
-                    </div>--}}
+                 
+                  
                     <div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Consultor') }}</label>
                         <div class="col-md-6">
                             <select class="form-select" aria-label="Default select example" name="user_id" required>
-                                <option value="" selected>Seleccionar</option>
                                 @foreach($consultants as $consultant)
-                                <option value="{{$consultant->id}}">{{$consultant->email}}</option>                             
+                                <option  value="{{$consultant->id}}" selected >{{$consultant->email}}</option>                             
                                  @endforeach
                             </select>
                         </div>
                     </div>
+                   
                       <div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Cliente') }}</label>
                         <div class="col-md-6">

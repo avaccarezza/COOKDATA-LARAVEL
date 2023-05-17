@@ -15,6 +15,7 @@ Route::resource('/customers_area', 'App\Http\Controllers\CustomerAreaController'
 
 Route::get('partners_section','App\Http\Controllers\PartnerSectionController@index')->name('partners_section.index');
 
+
 Route::resource('politics', 'App\Http\Controllers\PoliticController')->only(['index']);
 Route::resource('terms', 'App\Http\Controllers\TermController')->only(['index']);
 

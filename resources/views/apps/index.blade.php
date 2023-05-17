@@ -28,7 +28,7 @@
                          <!--<td>cliente</td>-->
                         <th>Aplicacion</th>
                         <th>Cliente</th>
-                        <th>Tipo de aplicacion</th>
+                        <th>Menu de accesos</th>
                         <th>Link</th>
                         <th>Acciones</th>
                     </tr>

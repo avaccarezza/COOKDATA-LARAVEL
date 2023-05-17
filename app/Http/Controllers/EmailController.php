@@ -26,7 +26,10 @@ class EmailController extends Controller
       $correo = new HablemosMailable($request->all());
       Mail::to('agustin@cookdata.io')->send($correo);
 
-        return  redirect()->route('partners.index')->with('info','Mensaje Enviado');
+        
+        return redirect()
+    ->route('partners_section.index')
+    ->withSuccess("El correo fue enviado satisfactoriamente");
     }
     public function create()
     {

@@ -71,22 +71,25 @@ body {
 }
 
 .title-bar-though h1 {
-    color: #ffffffee !important;
+    color: #ffffff !important;
     height: 25px;
     padding-top: 50px;
     text-align: center;
     font-weight: 700;
     margin: 20px 5px -30px auto;
+    position: relative;
+    
 }
 
 .title-bar-though h2 {
-    color: #ffffffee !important;
+    color: #ffffff !important;
     height: 5vh;
     text-align: center;
     font-size: 1.1rem;
     font-weight: 100;
     margin: -45px auto 35px auto;
     text-transform: none !important;
+    position:relative;
 }
 
 h1,
@@ -1841,9 +1844,9 @@ p {
 }
 
 .carousel-caption {
-    position: initial;
+    position: initial !important;
     z-index: 10;
-    padding: 5rem 8rem;
+    padding: 5rem 8rem !important;
     color: rgba(78, 77, 77, 0.856);
     text-align: center;
     font-size: 1.2rem;
@@ -1854,7 +1857,7 @@ p {
 
 @media(max-width:767px) {
     .carousel-caption {
-        position: initial;
+        position: initial; 
         z-index: 10;
         padding: 3rem 2rem;
         color: rgba(78, 77, 77, 0.856);
@@ -1963,7 +1966,7 @@ p {
     padding: 70px 0;
     background: #f0f0f0;
     position:relative;
-    z-index: 1000;
+    z-index: 80;
 }
 
 .footer-s1 .footer .comp-desc-f p {
@@ -2111,7 +2114,7 @@ address.address-details-f a {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 30px 0;
     position:relative;
-    z-index: 1000;
+    z-index: 80;
 }
 
 #footer-copyrights p {

@@ -47,6 +47,28 @@
 <!--====================================================
                   BANNER BAR DATA DRIVEN
 ======================================================-->
+{{--<div class="overlay-thought"></div>
+<section   class="bg-parallax thought-bg">
+<div id="about" class="home-p pages-head1 text-center">
+    <div class="container">
+        
+        <h1 class="wow fadeInUp">BAR DATA DRIVEN</h1>
+            <h1 class="wow fadeInUp">Inteligencia de negocios, la solución integral para mejorar los
+                resultados de tu negocio</h1>
+            
+            <a href="#contactanosform" class="smooth-scrolls" style=text-decoration:none><button class="btn btn-warning">Hablemos</button></a>
+
+    </div>
+    
+    <!--/end container-->
+</div>
+</section>--}}
+   <!--====================================================
+                  BANNER BAR DATA DRIVEN
+======================================================-->
+  <!--====================================================
+                  BANNER BAR DATA DRIVEN
+======================================================-->
 <div class="overlay-thought"></div>
 <section class="bg-parallax thought-bg">
     <section id="about" class="career-p1 about">
@@ -59,14 +81,14 @@
                     <h2 class="wow fadeInUp">Inteligencia de negocios, la solución integral para mejorar los
                         resultados de tu negocio</h2>
                     </p>
-                    <div class="title-but"><button onclick="{{route('partners_section.index')}}" class="btnthough btn btn-general btn-green"
-                            role="button">Conoce más</button></div>
+                    <a href="{{route('partners_section.index')}}" class="smooth-scrolls" style=text-decoration:none><button class="btn btn-warning  position-relative top-0 start-50 translate-middle">Conoce más</button></a>
+
+                   
                 </div>
             </div>
         </div>
     </section>
 </section>
-
 <!--====================================================
                  ABOUT-P3
 ======================================================-->
@@ -152,7 +174,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="service-himg">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5VRATxpLQUg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ajBek9CWklE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     
                     
                 </div>
@@ -223,8 +245,8 @@
         </div>
     </div>
 </div>
-<!-- ====================================================
-                  CLIENT
+ <!-- ====================================================
+                      CLIENT
 ======================================================-->
 <a id="clientes"></a>
 <section id="client" class="client">
@@ -233,7 +255,9 @@
             <div class="col-md-12">
                 <h1 class="wow fadeInUp">CUSTOMER SUCCESS</h1>
                 <div class="heading-border"></div>
-                <p class="wow fadeInUp" data-wow-delay="0.4s">Clientes que ya están experimentando los beneficios de utilizar herramientas de inteligencia de negocios en la gestión de su negocio</p>
+                <p class="wow fadeInUp" data-wow-delay="0.4s">Clientes que ya están experimentando los
+                    beneficios de utilizar herramientas de inteligencia de negocios en la gestión de su negocio
+                </p>
             </div>
         </div>
         <div class="container">
@@ -241,51 +265,69 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="carousel-caption">
-                            <p>Integración de sistemas on premise y cloud de cuatro ERP diferentes. Desarrollo de tableros de control de gestión para grupo gastronomico multimarca operador de aeropuertos en argentina gerenciador de marcas Hard Rock Café, LePain Quotidien, KFC, Havanna Café, Natural Market,<br>Alma Café y La Strada</p>
+                            <p>Integración de sistemas on premise y cloud de cuatro ERP diferentes. Desarrollo
+                                de tableros de control de gestión para grupo gastronomico multimarca operador de
+                                aeropuertos en argentina gerenciador de marcas Hard Rock Café, LePain Quotidien,
+                                KFC, Havanna Café, Natural Market,<br>Alma Café y La Strada</p>
                             <img src="img/client/arribos-min.jpg">
                             <div id="image-caption">Grupo Arribos</div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-caption">
-                            <p>Consolidación de datos de cuatro puntos de venta de gastronomía y cinco tiendas retail, implementación ERP de gestión compras y contabilidad. Desarrollo de tableros de control operativos</p>
+                            <p>Consolidación de datos de cuatro puntos de venta de gastronomía y cinco tiendas
+                                retail, implementación ERP de gestión compras y contabilidad. Desarrollo de
+                                tableros de control operativos</p>
                             <img src="img/client/hrdcafe-min.jpg" class="img-fluid">
                             <div id="image-caption">Hard Rock Café</div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-caption">
-                            <p>Parrilla líder en Buenos Aires con presencia en ocho países y más de quince establecimientos en Latino América. Diseño de tableros de control de ventas. Consultoría de gestión Data Driven</p>
+                            <p>Parrilla líder en Buenos Aires con presencia en ocho países y más de quince
+                                establecimientos en Latino América. Diseño de tableros de control de ventas.
+                                Consultoría de gestión Data Driven</p>
                             <img src="img/client/lacabrera-min.jpg" class="img-fluid">
                             <div id="image-caption">La Cabrera</div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-caption">
-                            <p>Cadena de steakhouse americana con más de un millar de establecimientos, diseño de tableros de control de gestión directiva y consolidación de información con otros establecimientos del grupo de la marca Fausto.</p>
+                            <p>Cadena de steakhouse americana con más de un millar de establecimientos, diseño
+                                de tableros de control de gestión directiva y consolidación de información con
+                                otros establecimientos del grupo de la marca Fausto.</p>
                             <img src="img/client/outback-min.jpg" class="img-fluid">
                             <div id="image-caption">Outback</div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-caption">
-                            <p>Fabricante e importador mayorista de material de electrónica de consumo a grandes cadenas de distribución. Tablero de gestión comercial con análisis de las líneas de producto. Desarrollo de plataforma de recolección de datos y análisis de trade marketing para control de posicionamiento de producto en los distribuidores.</p>
+                            <p>Fabricante e importador mayorista de material de electrónica de consumo a grandes
+                                cadenas de distribución. Tablero de gestión comercial con análisis de las líneas
+                                de producto. Desarrollo de plataforma de recolección de datos y análisis de
+                                trade marketing para control de posicionamiento de producto en los
+                                distribuidores.</p>
                             <img src="img/client/tagwood-min.jpg" class="img-fluid">
                             <div id="image-caption">Tagwood</div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-caption">
-                            <p>Distribuidor de material de construcción con presencia en Buenos Aires, desarrollo de tableros de gestión comercial, compras, stocks, finanzas y dashboard dirección.</p>
+                            <p>Distribuidor de material de construcción con presencia en Buenos Aires,
+                                desarrollo de tableros de gestión comercial, compras, stocks, finanzas y
+                                dashboard dirección.</p>
                             <img src="img/client/construnort-min.jpg" class="img-fluid">
                             <div id="image-caption">Construnort</div>
                         </div>
                     </div>
-                </div> <a class="carousel-control-prev" href="#demo" data-slide="prev"> <i class='fa fa-arrow-left'></i> </a> <a class="carousel-control-next" href="#demo" data-slide="next"> <i class='fa fa-arrow-right'></i> </a>
+                </div> <a class="carousel-control-prev" href="#demo" data-slide="prev"> <i
+                        class='fa fa-arrow-left'></i> </a> <a class="carousel-control-next" href="#demo"
+                    data-slide="next"> <i class='fa fa-arrow-right'></i> </a>
             </div>
         </div>
     </div>
 </section>
+
 
 <!--====================================================
                 CONTACT HOME

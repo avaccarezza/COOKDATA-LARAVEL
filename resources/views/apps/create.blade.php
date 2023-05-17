@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('panel')
 
-@section('content')
+@section('content-panel')
+    
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -38,7 +39,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">{{ __('Tipo de aplicacion') }}</label>
+                        <label class="col-md-4 col-form-label text-md-end">{{ __('Menu de acceso') }}</label>
                         <div class="col-md-6">
                             <select class="form-select" aria-label="Default select example" name="type_of_app" required>
                                 <option value="" selected>Seleccionar</option>

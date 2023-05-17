@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('panel')
 
-@section('content')
+@section('content-panel')
+    
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -17,8 +18,9 @@
                     <form method="post" action="{{ route('apps.update', ['app' => $app->id]) }}">
                     @csrf
                     @method('put')
-
-                    
+                           
+                   <input  type="hidden" class="form-control" name="customer_id"  value="{{$app->customer_id}}" required>
+                         
                     <div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Aplicacion') }}</label>
                         <div class="col-md-6">
@@ -26,9 +28,14 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">{{ __('Tipo de aplicacion') }}</label>
+                        <label class="col-md-4 col-form-label text-md-end">{{ __('Menu de acceso') }}</label>
                         <div class="col-md-6">
-                            <input  type="text" class="form-control" name="type_of_app"  value="{{$app->type_of_app}}" required>
+                            <select class="form-select" aria-label="Default select example" name="type_of_app" required>
+                                <option value="" selected>Seleccionar</option>
+                               @foreach($apps as $app)
+                               <option value="{{$app->type_of_app}}">{{$app->type_of_app}}</option>                             
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-3">

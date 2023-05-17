@@ -10,20 +10,26 @@ class="collapse d-lg-block sidebar collapse bg-white "
 
  <a
     href="{{ route('users.index') }}"
-    class="list-group-item list-group-item-action py-2 ripple {{ (request()->route()->getName() == 'users.index') ? 'active' : '' }}"
+    class="list-group-item list-group-item-action py-2 ripple
+    {{ (request()->route()->getName() == 'users.edit') ? 'active' : '' }}
+     {{ (request()->route()->getName() == 'users.index') ? 'active' : '' }}"
     ><i class="fas fa-chart-line fa-fw me-3"></i
    ><span>Listado de usuarios</span></a
    >
  <a
     href="{{ route('consultants_list.index') }}"
-    class="list-group-item list-group-item-action py-2 ripple {{ (request()->route()->getName() == 'consultants_list.index') ? 'active' : '' }}"
+    class="list-group-item list-group-item-action py-2 ripple 
+    {{ (request()->route()->getName() == 'users.show') ? 'active' : '' }}
+    {{ (request()->route()->getName() == 'consultants_list.index') ? 'active' : '' }}"
     >
    <i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de consultores</span>
  </a>
  <a
  href="{{ route('customers.index') }}"
- class="list-group-item list-group-item-action py-2 ripple"
- >
+ class="list-group-item list-group-item-action py-2 ripple
+ {{ (request()->route()->getName() == 'customers.index') ? 'active' : '' }}
+ {{ (request()->route()->getName() == 'customers.create') ? 'active' : '' }}
+ {{ (request()->route()->getName() == 'customers.edit') ? 'active' : '' }}">
 <i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de clientes</span>
 </a>
 {{--<a
@@ -34,7 +40,10 @@ class="collapse d-lg-block sidebar collapse bg-white "
 </a>--}}
 <a
 href="{{ route('apps.index') }}"
-class="list-group-item list-group-item-action py-2 ripple {{ (request()->route()->getName() == 'apps.index') ? 'active' : '' }}"
+class="list-group-item list-group-item-action py-2 ripple 
+{{ (request()->route()->getName() == 'apps.index') ? 'active' : '' }}
+{{ (request()->route()->getName() == 'apps.create') ? 'active' : '' }}
+{{ (request()->route()->getName() == 'apps.edit') ? 'active' : '' }}"
 >
 <i class="fas fa-chart-pie fa-fw me-3"></i><span>Listado de aplicaciones</span>
 </a>

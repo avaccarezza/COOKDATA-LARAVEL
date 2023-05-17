@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('panel')
 
-@section('content')
+@section('content-panel')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -26,17 +26,25 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
+                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
+
                         <div class="col-md-6">
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ?? $user->email }}" required autocomplete="email">
+
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
+
                     <div class="row mb-3">
                         <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
 
                         <div class="col-md-6" x-data="{ show: false }">
                             <div class="input-group">
-                            <input id="password" :type="show ? 'text' : 'password' " class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <input id="password" :type="show ? 'text' : 'password' " class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password" required>
                             <div class="input-group-append">
                                
                                 <button type="button" @click="show = !show" class="input-group-text" id="basic-addon2">
@@ -62,7 +70,7 @@
 
                         <div class="col-md-6" x-data="{ show: false }">
                             <div class="input-group">
-                            <input id="password-confirm":type="show ? 'text' : 'password' " class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <input id="password-confirm":type="show ? 'text' : 'password' " class="form-control" name="password_confirmation"  autocomplete="new-password" required>
                             <div class="input-group-append">
                                
                                 <button type="button" @click="show = !show" class="input-group-text" id="basic-addon2">

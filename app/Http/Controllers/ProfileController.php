@@ -30,10 +30,8 @@ class ProfileController extends Controller
     {
        return DB::transaction(function() use ($request){
 
-       
         $user = $request->user();
-        //array_filter arregla bug al dejar vacio el campo contraseña
-        //si el campo esta vacío lo ignora ( lo filtra )
+        
         $user->fill(array_filter($request->validated()));
 
         if($user->isDirty('email'))

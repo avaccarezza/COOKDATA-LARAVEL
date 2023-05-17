@@ -18,12 +18,11 @@ class AppController extends Controller
     }
     public function edit(App $app)
     {
-       
-        $apps = App::all();
+        $apps = App::distinct()->get(['type_of_app']);
+    
         return view('apps.edit', compact('apps'))->with([
-
-           'app' => $app, 
-           
+            'app' => $app,
+            
         ]);
     }   
     
