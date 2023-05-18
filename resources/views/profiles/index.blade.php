@@ -11,7 +11,7 @@
         <div class="card-body">
           <h5 class="card-title">Nombre: {{ucfirst($user->name)}}</h5>
           <p class="card-text">Correo: {{ucfirst($user->email)}}</p>
-          <p class="card-text">Telefono: </p>
+          <p class="card-text">Perfil: {{ucfirst($user->profile->profile)}} </p>
           <div class="navbar navbar-expand-md navbar-light ">
           <ul class="navbar-nav auto">      
             

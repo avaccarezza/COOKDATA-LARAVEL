@@ -33,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = 'panel/users';
 
     /**
      * Create a new controller instance.
@@ -42,7 +42,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-       // $this->middleware('auth');
+        //$this->middleware('auth');
     }
     public function showRegistrationForm()
 {
@@ -88,4 +88,5 @@ class RegisterController extends Controller
             'profile_id' => $data['profile_id'],
         ]);
     }
+    
 }

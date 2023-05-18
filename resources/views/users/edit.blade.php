@@ -44,7 +44,7 @@
 
                         <div class="col-md-6" x-data="{ show: false }">
                             <div class="input-group">
-                            <input id="password" :type="show ? 'text' : 'password' " class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password" required>
+                            <input id="password" :type="show ? 'text' : 'password' " class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password" value="{{ old('password') ?? $user->password }}" required>
                             <div class="input-group-append">
                                
                                 <button type="button" @click="show = !show" class="input-group-text" id="basic-addon2">
@@ -70,7 +70,7 @@
 
                         <div class="col-md-6" x-data="{ show: false }">
                             <div class="input-group">
-                            <input id="password-confirm":type="show ? 'text' : 'password' " class="form-control" name="password_confirmation"  autocomplete="new-password" required>
+                            <input id="password-confirm":type="show ? 'text' : 'password' " class="form-control" name="password_confirmation"  autocomplete="new-password" value="{{ old('password') ?? $user->password }}" required>
                             <div class="input-group-append">
                                
                                 <button type="button" @click="show = !show" class="input-group-text" id="basic-addon2">

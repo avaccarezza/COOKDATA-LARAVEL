@@ -338,17 +338,18 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                           {{--@if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
-                            @endif
+                            @endif--}} 
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{  asset(Auth::user()->profile_image)}}" alt="{{ Auth::user()->name }}" class="rounded-circle" width="32" height="32">
+                                  {{--  <img src="{{  asset(Auth::user()->profile_image)}}" alt="{{ Auth::user()->name }}" class="rounded-circle" width="32" height="32">
                                    
-                                    <span class="caret"></span>
+                                    <span class="caret"></span>--}}
+                                    Mi Perfil
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
