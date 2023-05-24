@@ -13,14 +13,14 @@
                    <div class="overlay"></div>
                    <div class="slide-1"></div>
                    <div class="hero">
-                       <hgroup class="wow fadeInUp">
+                       <hgroup class="fade-in-home">
                            <h1>Decide con <span><a href="" class="typewrite" data-period="2000" data-type='[" Datos"]'>
                        <span class="wrap"></span></a>
                                </span>
                            </h1>
                            <h3>Toda la información de tu negocio en tiempo real<br> Accede desde una plataforma única en cualquier<br> momento y desde cualquier lugar</h3>
                        </hgroup>
-                       <a href="#contactanosform" class="smooth-scrolls" style=text-decoration:none><button class="btn btn-warning">Hablemos</button></a>
+                       <a href="#contacto" class="smooth-scrolls" style=text-decoration:none><button class="btn btn-warning">Hablemos</button></a>
                    </div>
                </div>
            </div>
@@ -35,37 +35,16 @@
     <div class="container">
         <div class="row title-bar">
             <div class="col-md-12">
-                <h1 class="wow fadeInUp">INTELIGENCIA DE NEGOCIOS | EL PODER DE LOS DATOS</h1>
+                <h1 class="fade-in-up">INTELIGENCIA DE NEGOCIOS | EL PODER DE LOS DATOS</h1>
                 <div class="heading-border"></div>
-                <p class="wow fadeInUp" data-wow-delay="0.4s">Aplicamos tecnología que nos permite extraer los datos de los sistemas de gestión de tu empresa de forma simple y rápida. Los transformamos y convertimos en información relevante, te los facilitamos para su análisis de forma clara
+                <p class="fade-in-up" data-wow-delay="0.4s">Aplicamos tecnología que nos permite extraer los datos de los sistemas de gestión de tu empresa de forma simple y rápida. Los transformamos y convertimos en información relevante, te los facilitamos para su análisis de forma clara
                     y visualmente atractiva, para que puedas aprovechar todo el potencial de la información y convertirlos en conocimiento para toda tu organización.</br><b>Transforma la gestión de tu empresa y facilita el acceso a la información a todo tu equipo para tomar mejores decisiones</b></p>
             </div>
         </div>
     </div>
 </section>
 <!-- termina titulo -->
-<!--====================================================
-                  BANNER BAR DATA DRIVEN
-======================================================-->
-{{--<div class="overlay-thought"></div>
-<section   class="bg-parallax thought-bg">
-<div id="about" class="home-p pages-head1 text-center">
-    <div class="container">
-        
-        <h1 class="wow fadeInUp">BAR DATA DRIVEN</h1>
-            <h1 class="wow fadeInUp">Inteligencia de negocios, la solución integral para mejorar los
-                resultados de tu negocio</h1>
-            
-            <a href="#contactanosform" class="smooth-scrolls" style=text-decoration:none><button class="btn btn-warning">Hablemos</button></a>
 
-    </div>
-    
-    <!--/end container-->
-</div>
-</section>--}}
-   <!--====================================================
-                  BANNER BAR DATA DRIVEN
-======================================================-->
   <!--====================================================
                   BANNER BAR DATA DRIVEN
 ======================================================-->
@@ -76,12 +55,12 @@
         <div class="container">
             <div class="row title-bar-though">
                 <div class="col-md-12">
-                    <h1 class="wow fadeInUp">BAR DATA DRIVEN</h1>
-                    <p class="wow fadeInUp" data-wow-delay="0.4s">
-                    <h2 class="wow fadeInUp">Inteligencia de negocios, la solución integral para mejorar los
+                    <h1 class="fade-in-up">BAR DATA DRIVEN</h1>
+                    <p class="fade-in-up" data-wow-delay="0.4s">
+                    <h2 class="fade-in-up">Inteligencia de negocios, la solución integral para mejorar los
                         resultados de tu negocio</h2>
                     </p>
-                    <a href="{{route('partners_section.index')}}" class="smooth-scrolls" style=text-decoration:none><button class="btn btn-warning  position-relative top-0 start-50 translate-middle">Conoce más</button></a>
+                    <a href="{{route('partners_section.index')}}" class="smooth-scrolls" style=text-decoration:none><button class="btn btn-warning  position-relative top-0 start-50 translate-middle ">Conoce más</button></a>
 
                    
                 </div>
@@ -97,7 +76,7 @@
     <div class="container">
         <div class="row title-bar">
             <div class="col-md-12">
-                <h1 class="wow fadeInUp">Desde la captura del dato, al más completo análisis de negocio</h1>
+                <h1 class="fade-in-up">Desde la captura del dato, al más completo análisis de negocio</h1>
                 <div class="heading-border"></div>
             </div>
         </div>
@@ -117,7 +96,7 @@
             </div>
             <div class="col-md-6">
                 <div class="story-himg">
-                    <img src="img/home/aboutimage1-min.jpg" class="img-fluid wow fadeInUp" data-wow-delay="0.1s" alt="">
+                    <img src="img/home/aboutimage1-min.jpg" class="img-fluid fade-in-up" data-wow-delay="0.1s" alt="">
                 </div>
             </div>
         </div>
@@ -126,7 +105,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="story-himg story-himg-middle-u">
-                    <img src="img/home/aboutimage2-min.jpg" class="img-fluid wow fadeInUp" data-wow-delay="0.1s" alt="">
+                    <img src="img/home/aboutimage2-min.jpg" class="img-fluid fade-in-up" data-wow-delay="0.1s" alt="">
                 </div>
             </div>
             <div class="col-md-6">
@@ -158,7 +137,7 @@
             </div>
             <div class="col-md-6">
                 <div class="story-himg">
-                    <img src="img/home/aboutimage3-min.jpg" class="img-fluid wow fadeInUp" data-wow-delay="0.1s" alt="">
+                    <img src="img/home/aboutimage3-min.jpg" class="img-fluid fade-in-up" data-wow-delay="0.1s" alt="">
                 </div>
             </div>
         </div>
@@ -179,7 +158,7 @@
                     
                 </div>
             </div>
-            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="col-md-6 fade-in-up" data-wow-delay="0.3s">
                 <div class="service-h-desc">
                     <h3>SUMATE A LOS BENEFICIOS DEL BUSINESS INTELLIGENCE</h3>
                     <div class="heading-border-light"></div>
@@ -213,18 +192,18 @@
         <div class="row">
             <div class="col-md-4 col-sm-12">
                 <div class="about-p2-cont cl-white">
-                    <img src="img/home/decisionesinteligentes-min.jpg" class="img-fluid wow fadeInUp" data-wow-delay="0.1s" alt="...">
+                    <img src="img/home/decisionesinteligentes-min.jpg" class="img-fluid fade-in-up" data-wow-delay="0.1s" alt="...">
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="about-p2-cont cl-white wow fadeInUp" data-wow-delay="0.3s">
+                <div class="about-p2-cont cl-white fade-in-up" data-wow-delay="0.3s">
                     <h5>Reduce costes</h5>
                     <p class="cl-white"><br>Reduce tus <b>costes directos</b> e <b>indirectos</b>, los primeros asociados al manejo de la información de la empresa minimizando el tiempo al tratamiento y consolidación de datos y a las tareas de elaboración de reportes
                         por personal ejecutivo, los segundos derivados de un mejor análisis de control de gestión en tiempo real que permita identificar las oportunidades de mejora con inmediatez.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="about-p2-cont cl-white wow fadeInUp" data-wow-delay="0.5s">
+                <div class="about-p2-cont cl-white fade-in-up" data-wow-delay="0.5s">
                     <h5>Da un salto de calidad</h5>
                     <p class="cl-white">Potencia el uso adecuado de las herramientas de inteligencia de negocios, <b>detecta oportunidades de mejora</b>, analiza tendencias y conoce mejor a tus clientes y su comportamiento. <b>La combinación adecuada de tecnología y análisis de información puede marcar una gran diferencia</b>                            entre una empresa que logra el crecimiento y una que no lo hace, entre un servicio al cliente de excelencia o uno deficiente, entre un manejo de inventarios eficiente y la pérdida de dinero y recursos, entre el éxito o fracaso
                         de una organización.</p>
@@ -253,9 +232,9 @@
     <div class="container">
         <div class="row title-bar">
             <div class="col-md-12">
-                <h1 class="wow fadeInUp">CUSTOMER SUCCESS</h1>
+                <h1 class="fade-in-up">CUSTOMER SUCCESS</h1>
                 <div class="heading-border"></div>
-                <p class="wow fadeInUp" data-wow-delay="0.4s">Clientes que ya están experimentando los
+                <p class="fade-in-up" data-wow-delay="0.4s">Clientes que ya están experimentando los
                     beneficios de utilizar herramientas de inteligencia de negocios en la gestión de su negocio
                 </p>
             </div>
@@ -332,7 +311,7 @@
 <!--====================================================
                 CONTACT HOME
 ======================================================-->
-<a id="contacto"></a>
+{{--<a id="contacto"></a>
 <div class="overlay-contact-h" id="contactanosform"></div>
 <section id="contact-h" class="bg-parallax contact-h-bg">
     <div class="content">
@@ -473,8 +452,147 @@
         </div>
     </div>
 </section>
+--}}
+<a id="contacto" ></a>
 
+<div class="container p-5">
+<div class="card mb-3">
+
+<div class="card-body">
+    <div class="row">
+        <div class="py-4">
+            
+            @if(session('success'))
+        <script>
+            window.location = '#contacto';
+        </script>
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
+    
+        @if (isset($errors) && $errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
+        <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
+            <img  src="{{ URL::asset('img/partners/form-partners.png')}}" alt="form-partners" class="img-fluid" style="height: 700px;">
+        </div>
+        <div class="col-md-6 pt-3 pb-3">                
+            <form action="{{ route('hablemos.store') }}" class="mb-5" method="post"  >
+            @csrf
+            <div class="row mb-3">
+                <input type="hidden" name="id_partner">
+                <label class="col-md-3 col-form-label text-md-end">{{ __('Nombre y apellidos') }}</label>
+                <div class="col-md-6">
+                    <input id="name" type="text" class="form-control" name="nombre" required>
+                    @error('nombre')
+                    <p><strong>{{$message}}</strong></p>
+                    @enderror
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-md-3 col-form-label text-md-end">{{ __('Email') }}</label>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" name="email" id="email"  required>
+                </div>
+                @error('email')
+                <p><strong>{{$message}}</strong></p>
+                @enderror
+            </div>
+            <div class="row mb-3">
+                <label class="col-md-3 col-form-label text-md-end">{{ __('Teléfono') }}</label>
+                <div class="col-md-6">
+                    <input input type="tel" class="form-control" name="telefono" id="telefono" required>
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <label class="col-md-3 col-form-label text-md-end">{{ __('Tipo de contacto') }}</label>
+                <div class="col-md-6">
+                    <select class="form-select" aria-label="Default select example" name="contacto" required>
+                        <option value="" selected disabled='disabled'>Selecciona un tipo de contacto</option>
+                        @foreach($contactos as $contacto)
+                            <option value="{{$contacto}}"> {{$contacto}} </option>
+                        @endforeach 
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-md-3 col-form-label text-md-end">{{ __('Empresa') }}</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="empresa" id="empresa" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-md-3 col-form-label text-md-end">{{ __('Cargo') }}</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="cargo" id="cargo" required >
+                </div>
+            </div>
+                   <!--input province-->
+                   <div class="row mb-3">
+                    <label class="col-md-3 col-form-label text-md-end">{{ __('Provincia') }}</label>
+                    <div class="col-md-6">
+                        <select class="form-select" aria-label="Default select example" name="provincia" required>    
+                            <option value="" selected disabled='disabled'>Selecciona una provincia</option>
+                                @foreach($provincias as $provincia)
+                                    <option value="{{$provincia}}"> {{$provincia}} </option>
+                                @endforeach 
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-3 col-form-label text-md-end">{{ __('Poblacion') }}</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="poblacion" id="poblacion" required>
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <label class="col-md-3 col-form-label text-md-end">{{ __('Codigo postal') }}</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="codigo_postal" id="codigo_postal" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-3 col-form-label text-md-end">{{ __('Servicio de interes') }}</label>
+                    <div class="col-md-6">
+                        <select class="form-select" aria-label="Default select example" name="asunto" required>   
+                            <option value="" selected disabled='disabled'>Selecciona un servicio de interes</option>
+                            @foreach($asuntos as $asunto)
+                                <option value="{{$asunto}}"> {{$asunto}} </option>
+                            @endforeach
+                        </select>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-3 col-form-label text-md-end">{{ __('Comentarios') }}</label>
+                    <div class="col-md-6">
+                        <textarea class="form-control" name="mensaje" id="mensaje" cols="40" rows="4" maxlength="250" placeholder="Comentanos acerca de tu interés:" required></textarea>
+                    </div>
+                </div>
+            <div class="row mb-0">
+                <div class="col-md-8 offset-md-4">
+                    <button type="submit" class="btn btn-warning">
+                        {{ __('Enviar mensaje') }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
 <a href="https://api.whatsapp.com/send?phone=34667316307&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n." class="float" target="_blank">
 <i class="fa fa-whatsapp my-float"></i>
 </a>
+
 @endsection

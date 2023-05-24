@@ -9,9 +9,6 @@ class PartnerSectionController extends Controller
     public function index()
     {
         $arrays =  $this->arrays();
-        
-
-        
         return view('partners_section.index', $arrays );
     }
     public function arrays(){

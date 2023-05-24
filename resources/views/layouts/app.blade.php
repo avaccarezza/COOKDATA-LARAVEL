@@ -10,22 +10,22 @@
     <link rel="icon" href="{{ URL::asset('img/utilities/favicon.ico')}}"> 
     <title>Cookdata</title>
     <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="{{ URL::asset('../css/carousel-slider.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/about.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/careers.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('../css/carousel-slider.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/com-soon.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/contact.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/faq.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/news.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/pricing.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/project.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('../css/services.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/shop.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/single-product.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/team.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('../css/styles.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('../css/testimonials.css') }}">
-
+    <link rel="stylesheet" href="{{ URL::asset('../css/services.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('../css/styles.css') }}">
+   
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500" rel="stylesheet">
     <!-- Whatsapp widget -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -33,38 +33,21 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <!--Global JavaScript -->
+    <script src="{{ asset('/js/jquery/jquery.min.js') }}"></script> 
+    <script src="{{ asset('/js/popper/popper.min.js') }}"></script> 
+    <script src="{{ asset('/js/bootstrap/bootstrap.min.js') }}"></script> 
+    <script src="{{ asset('/js/custom.js') }}"></script> 
+    <script src="{{ asset('/js/owl-carousel/owl.carousel.min.js') }}"></script> 
 
-  <!--Global JavaScript -->
-  <script src="js/jquery/jquery.min.js"></script>
-  <script src="js/popper/popper.min.js"></script>
-  <script src="js/bootstrap/bootstrap.min.js"></script>
-  <script src="js/wow/wow.min.js"></script>
-  <script async src="js/carousel-slider.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script async src="{{ asset('/js/carousel-slider.js') }}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
- <!-- Plugin JavaScript -->
- <script src="js/jquery-easing/jquery.easing.min.js"></script>
- <script src="js/custom.js"></script>
-
-  <!--JS Form -->
-  <script async src="js/jquery.validate.min.js"></script>
-  <script async src="js/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
-<!--Global JavaScript -->
-<script src="../js/jquery/jquery.min.js"></script>
-<script src="../js/popper/popper.min.js"></script>
-<script src="../js/wow/wow.min.js"></script>
-<script async src="../js/carousel-slider.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="../js/jquery-easing/jquery.easing.min.js"></script>
-<script src={{ URL::asset('../js/custom.js')}}></script>
-
+    
+   
+    <!-- Plugin JavaScript -->
+    <script src="../js/jquery-easing/jquery.easing.min.js"></script>
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 <!--JS Form -->
 <script async src="../js/jquery.validate.min.js"></script>
@@ -97,7 +80,7 @@
             </div>
         </nav>
         @endif
-        
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             
             <div class="container">
@@ -126,7 +109,7 @@
                         </li>
                        
                         <li class="nav-item">
-                            <a class="nav-link" href="#contacto">Contactos</a>
+                            <a class="nav-link" href="#contacto">Contacto</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarWhiteDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -289,14 +272,16 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Clientes
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end"  aria-labelledby="navbarDropdown">
-                            
-                            @foreach ( Auth::user()->customers as $customer )
-                                <a class="dropdown-item d-flex justify-content-center pt-2" href="{{ route('customers_area.show',  $customer->customer) }}"   >
-                                    {{ $customer->customer}}
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @php
+                                $sortedCustomers = Auth::user()->customers->sortBy('customer');
+                            @endphp
+                
+                            @foreach ($sortedCustomers as $customer)
+                                <a class="dropdown-item d-flex justify-content-center pt-2" href="{{ route('customers_area.show', $customer->customer) }}">
+                                    {{ $customer->customer }}
                                 </a>
                             @endforeach
-                            
                         </div>
                     </li>     
                    @endif
@@ -346,10 +331,10 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  {{--  <img src="{{  asset(Auth::user()->profile_image)}}" alt="{{ Auth::user()->name }}" class="rounded-circle" width="32" height="32">
+                                   <img src="{{  asset(Auth::user()->profile_image)}}" alt="{{ Auth::user()->name }}" class="rounded-circle" width="32" height="32">
                                    
-                                    <span class="caret"></span>--}}
-                                    Mi Perfil
+                                    <span class="caret"></span>
+                                    
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

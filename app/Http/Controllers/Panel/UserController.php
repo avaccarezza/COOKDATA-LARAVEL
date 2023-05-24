@@ -53,13 +53,13 @@ class UserController extends Controller
         ]);
     }   
     
-    public function update(UserRequest $request , User $user,Customer $customer){
+    public function update(UserRequest $request , User $user){
         
         $user->update($request->validated());
       
        return redirect()
                 ->route('users.index')
-                ->withSuccess("El usuario con ID {$user->id} fue editado");
+                ->withSuccess("El usuario {$user->email} fue editado");
    
     }
     public function destroy(User $user)
@@ -67,7 +67,7 @@ class UserController extends Controller
         $user->delete();
         return redirect()
                 ->route('users.index')
-                ->withSuccess("El usuario con ID {$user->id} fue eliminado");
+                ->withSuccess("El usuario {$user->email} fue eliminado");
     }
     
     

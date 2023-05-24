@@ -28,26 +28,25 @@
                         </div>
                     </div>
                     <div class="row mb-3">
+                        <label class="col-md-4 col-form-label text-md-end">{{ __('Link') }}</label>
+                        <div class="col-md-6">
+                            <input  type="text" class="form-control" name="path"  value="{{ $app->path }}" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
                         <label class="col-md-4 col-form-label text-md-end">{{ __('Menu de acceso') }}</label>
                         <div class="col-md-6">
                             <select class="form-select" aria-label="Default select example" name="type_of_app" required>
                                 <option value="" selected>Seleccionar</option>
-                               @foreach($apps as $app)
-                               <option value="{{$app->type_of_app}}">{{$app->type_of_app}}</option>                             
+                                @foreach($apps as $app)
+                               <option value="{{$app->type_of_app}}">{{$app->type_of_app}}</option>                        
                                 @endforeach
                             </select>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">{{ __('Link') }}</label>
-                        <div class="col-md-6">
-                            <input  type="text" class="form-control" name="path"  value="{{$app->path}}" required>
-                        </div>
-                    </div>
-                
                     
-               
-
+                    
+            
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-warning btn-lg">

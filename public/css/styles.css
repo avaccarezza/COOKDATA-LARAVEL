@@ -21,6 +21,9 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 
 ======================================================*/
 
+ 
+  
+/**/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300');
 
 /* General CSS */
@@ -295,56 +298,11 @@ header .topmenu .top-data li a.log-top:hover {
     }
 }
 
-
-
-
-
-/*This is item search bar*/
-
-
-/* .navbar-nav li>.search {
-        color: #aaa;
-        cursor: pointer;
-        font-size: 15px;
-        z-index: 0;
-        min-width: 30px;
-        margin-top: 3px;
-        padding: 28px 0;
-        text-align: center;
-        display: inline-block;
-    } */
-
-
-/* .navbar-nav li>.search:hover {
-        color: #f3cd21;
-    } */
-
-
-/* .navbar .search-open {
-        right: 0;
-        top: 65px;
-        display: none;
-        height: 50px;
-        padding: 4px;
-        position: absolute;
-        background: #fff;
-        box-shadow: 0 0 3px #ddd;
-        z-index: 1001;
-    } */
-
-
-/* .navbar .search-open input,
-    .navbar .search-open span {
-        height: 40px;
-        border-color: #f3cd21;
-        line-height: 50px;
-    }
-
-    .navbar .search-open span {
-        background: #f3cd21;
-        color: #fff;
-    } */
-
+ 
+.navbar .nav-item:not(:last-child) {
+    margin-right: 20px;
+  }
+  
 .navbar-toggle {
     background-color: rgba(0, 0, 0, 0.1);
     border: 1px solid #fff;
@@ -2678,10 +2636,11 @@ label.error {
       }
       @media (min-width: 991.98px) {
         main {
+            min-height: 425px;
           padding-left: 240px;
         }
       }
-      
+     
       /* Sidebar */
       .sidebar {
         position: fixed;
@@ -2713,5 +2672,29 @@ label.error {
         overflow-x: hidden;
         overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
       }
-
-     
+      .fade-in-home {
+        opacity: 0;
+        animation: fade-in-home 1s ease-in forwards;
+      }
+      
+      @keyframes fade-in-home {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in-up {
+        opacity: 0; /* El elemento estará inicialmente oculto */
+        transform: translateY(50px); /* El elemento estará posicionado 50px más abajo */
+        transition: opacity 0.5s, transform 0.5s; /* Aplicamos una transición suave de 0.5 segundos */
+      }
+      
+      .fade-in-up.fade-in {
+        opacity: 1; /* El elemento se desvanecerá gradualmente a su opacidad completa */
+        transform: translateY(0); /* El elemento se moverá a su posición original */
+      }
+   

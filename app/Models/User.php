@@ -86,7 +86,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function isUser()
     {
-        return $this->profile_id == 2;
+        return $this->profile_id >= 2;
     }
 
 

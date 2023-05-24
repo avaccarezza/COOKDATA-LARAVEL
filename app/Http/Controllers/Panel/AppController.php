@@ -11,9 +11,14 @@ class AppController extends Controller
 {
     public function index()
     {
-        $apps = App::select("*")
-        ->orderByRaw("customer_id")
-        ->get(); 
+        $url= $_SERVER["REQUEST_URI"];
+
+        if (strpos($url, 'search')): 
+            $apps = App::search(request('search'))->get(); 
+        else:
+            $apps = App::sortable()->get(); 
+        endif;
+
         return view('apps.index',compact('apps'));
     }
     public function edit(App $app)
@@ -32,7 +37,7 @@ class AppController extends Controller
       
        return redirect()
                 ->route('apps.index')
-                ->withSuccess("La aplicacion con ID {$app->id} fue editada");
+                ->withSuccess("La aplicacion {$app->app} del cliente {$app->customer->customer} fue editada");
    
     }
     public function create(){

@@ -10,6 +10,7 @@ use App\Models\CustomerUser;
 use App\Models\User;
 class ConsultantListController extends Controller
 {
+
     public function index()
     {
       
@@ -19,18 +20,7 @@ class ConsultantListController extends Controller
             'users' => $consultants,
         ]);
     }
-/*   public function create(){
-        $apps = App::distinct()->get(['type_of_app']);
-        $customers = Customer::all();
-        return view('apps.create',compact('apps'),compact('customers'));
-    }
-    public function store(AppRequest $request)
-    {
-        $app = App::create($request->validated());
-        return redirect()
-        ->route('apps.index')
-        ->withSuccess("El producto con ID {$app->id} fue editado");
-    }   */
+
     public function create(){
         
         $customers = Customer::all();

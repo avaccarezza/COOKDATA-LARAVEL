@@ -25,6 +25,7 @@
                     <tr>
                         <!--<th>ID</th>-->
                          <!--<td>cliente</td>-->
+                         
                         <th>Nombre</th>
                         <th>Email</th>
                         <th>Acciones</th>

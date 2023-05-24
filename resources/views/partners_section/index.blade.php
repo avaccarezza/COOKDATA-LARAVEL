@@ -142,12 +142,13 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif</div>
+            @endif
+        </div>
             <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
                 <img  src="{{ URL::asset('img/partners/form-partners.png')}}" alt="form-partners" class="img-fluid" style="height: 700px;">
             </div>
             <div class="col-md-6 pt-3 pb-3">                
-                <form action=" {{ route('hablemos.store') }}" class="mb-5" method="post" id="contactForm" name="contactForm">
+                <form action="{{ route('hablemos.store') }}" class="mb-5" method="post" id="contactForm" name="contactForm">
                 @csrf
                 <div class="row mb-3">
                     <input type="hidden" name="id_partner">

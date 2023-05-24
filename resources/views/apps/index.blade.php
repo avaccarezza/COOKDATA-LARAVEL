@@ -26,11 +26,11 @@
                     <tr>
                         <!--<th>ID</th>-->
                          <!--<td>cliente</td>-->
-                        <th>Aplicacion</th>
-                        <th>Cliente</th>
-                        <th>Menu de accesos</th>
-                        <th>Link</th>
-                        <th>Acciones</th>
+                    <th>@sortablelink('app','Aplicacion',[],['class' => 'text-black'])</th>
+                    <th>@sortablelink('customer.customer','Clientes',[],['class' => 'text-black'])</th>
+                    <th>@sortablelink('type_of_app','Menu de accesos',[],['class' => 'text-black'])</th>
+                    <th>Link</th>
+                    <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
